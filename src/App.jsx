@@ -28,6 +28,7 @@ function App() {
             <p className="title">Try this!</p>
             <LoginButton />
             <SignUpbutton />
+            <p>Learn React</p>
           </div>
         </div>
       )}
