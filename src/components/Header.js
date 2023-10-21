@@ -17,21 +17,27 @@ export const Header = () => {
   const [fetchData, setFetchData] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
+  get_token.then((result) => {
+    setAccessToken(result.__raw);
+  });
+  const token = accessToken.__raw;
+
 
   useEffect(() => {
-    if (isAuthenticated && !fetchData) {
+    if (isAuthenticated) {
       // Realizar la primera solicitud fetch para obtener los roles
       fetchRoles();
-      setFetchData(true); // Establecer fetchData a true para evitar futuras solicitudes
     }
   }, [isAuthenticated, fetchData]);
 
+
   const fetchRoles = async () => {
-    let accessToken = await get_token;
+    let accessToken = get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
     const token = accessToken.__raw;
+
 
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");

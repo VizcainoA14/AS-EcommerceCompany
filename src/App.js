@@ -9,9 +9,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 
+
 function App() {
   // Defining the state of the user
   const { isAuthenticated } = useAuth0();
+
 
   return (
     <div>
