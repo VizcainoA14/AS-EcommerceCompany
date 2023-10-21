@@ -1,4 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.title-about { 
-    text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.title-about {
+  text-align: center;
+}
+
+.__div-section-1 {
+  text-align: center;
+  background: var(--bs--success);
+  width: auto;
+  height: 300px;
+}
+
+.__div-section-2 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  background: #fff;
+  width: auto;
+  height: 500px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.__div_section-2-father-about {
+  display: flex;
+  background: #fff;
+  width: calc(1275 / 16);
+  height: 18.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.__div_section-2-father-about > div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5625rem;
+  width: 12.5rem;
+  height: 12.5rem; 
+}
+
+.__div_section-2-father-about > div:first-child {
+}
+
+.__div_section-2-father-about > div:nth-child(2) {
+}
+
+.__div_section-2-father-about > div:nth-child(3) {
+}
+
+.__div_section-2-father-about > div:nth-child(4) {
+}
+
+.__div-section-3 {
+  background: var(--bs-green);
+  width: auto;
+  height: 300px;
+}
+
+:root {
+  --bs-green: #198754;
+  --bs--success: #20c997;
 }

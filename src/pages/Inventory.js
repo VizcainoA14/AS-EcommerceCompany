@@ -11,6 +11,10 @@ export const Inventory = () => {
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
 
+  
+
+  
+
   const get_products = async () => {
     let accessToken = await get_token;
     get_token.then((result) => {
@@ -59,6 +63,7 @@ export const Inventory = () => {
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
+    
     const token = accessToken.__raw;
     fetch('http://127.0.0.1:8000/DELETE_PRODUCT/?id_product='+id, {
       method: 'DELETE',
