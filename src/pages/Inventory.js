@@ -11,6 +11,7 @@ export const Inventory = () => {
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
+  
 
   
 
@@ -54,11 +55,13 @@ export const Inventory = () => {
     setProducts([...products, newproducts]);
   };
 
-  const removeproducts = async (id) => {
+  /* const removeproducts = async (id) => {
+
     let accessToken = await get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
+    
     const token = accessToken.__raw;
     fetch('http://127.0.0.1:8000/holis', {
           method: 'DELETE',
@@ -77,6 +80,8 @@ export const Inventory = () => {
               console.error(error);
           });
   };
+
+  */
   get_products();
 
   return (
@@ -112,7 +117,7 @@ export const Inventory = () => {
                 <td>
                   <button
                     className="removeButton"
-                    onClick={() => removeproducts(products.id)}
+            /* onClick={() => removeproducts(products.id)}*/
                   >
                     Remove
                   </button>
