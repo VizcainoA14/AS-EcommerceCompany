@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .img { 
-    width: auto;
+    width: 50%;
     height: auto;
     border-radius: 9px;
     border: none;
     outline: 20px;
+    
   }
   

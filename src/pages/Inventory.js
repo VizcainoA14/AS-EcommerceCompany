@@ -1,60 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Inventory.css";
+import { useFetcher } from "react-router-dom";
+import Header from "../components/Header";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const Inventory = () => {
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      name: "Item 1",
-      price: "$10.000",
-      brand: "JBL",
-      category: "Computer",
-      description: "Default",
-      stock: 10,
-    },
-    {
-      id: 2,
-      name: "Item 2",
-      price: "$10.000",
-      brand: "JBL",
-      category: "Computer",
-      description: "Default",
-      stock: 5,
-    },
-    {
-      id: 3,
-      name: "Item 3",
-      price: "$10.000",
-      brand: "JBL",
-      category: "Computer",
-      description: "Default",
-      stock: 3,
-    },
-  ]);
+  const { user, isAuthenticated } = useAuth0();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [accessToken, setAccessToken] = useState("");
+  const get_token = useAuth0().getIdTokenClaims();
+  const [error, setError] = useState(null);
 
-  const addItem = () => {
-    const newItem = {
-      id: items.length + 1,
-      name: `Item ${items.length + 1}`,
+  
+
+  const get_products = async () => {
+    let accessToken = await get_token;
+    get_token.then((result) => {
+      setAccessToken(result.__raw);
+    });
+    const token = accessToken.__raw;
+    setLoading(true);
+    fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+        Content_type: "application/json",
+      },
+    })
+      .then((Response) => {
+        if (!Response.ok) {
+          throw new Error(`Network response was not OK`);
+        }
+        return Response.json();
+      })
+      .then((json) => setProducts(json))
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => setLoading(false));  
+  };
+
+  const addproducts = () => {
+    const newproducts = {
+      id: products.length + 1,
+      name: `products ${products.length + 1}`,
       price: "$10.000",
       brand: "JBL",
       category: "Computer",
       description: "Default",
       stock: 0,
     };
-    setItems([...items, newItem]);
+    setProducts([...products, newproducts]);
   };
 
-  const removeItem = (id) => {
-    const updatedItems = items.filter((item) => item.id !== id);
-    setItems(updatedItems);
+  const removeproducts = async (id) => {
+    let accessToken = await get_token;
+    get_token.then((result) => {
+      setAccessToken(result.__raw);
+    });
+    const token = accessToken.__raw;
+    fetch('http://127.0.0.1:8000/holis', {
+          method: 'DELETE',
+          headers: {
+            Authorization: "Bearer " + token,
+            Content_type: "application/json",
+          },
+          body: JSON.stringify(data),
+          })
+          .then((response) => response.json())
+          .then((data) => {
+              console.log(data);
+              window.location.reload();
+          })
+          .catch((error) => {
+              console.error(error);
+          });
   };
+  get_products();
 
   return (
     <main>
       <h1 className="title-inventory">INVENTORY</h1>
-      <div className="grid-container">
-        <button className="add-button" onClick={addItem}>
+      <div className="grid-container-inventory">
+        <button className="add-button" onClick={addproducts}>
           Add Product
         </button>
         <table className="table">
@@ -71,19 +100,19 @@ export const Inventory = () => {
             </tr>
           </thead>
           <tbody>
-            {items.map((item) => (
-              <tr key={item.id} className="table-row">
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.price}</td>
-                <td>{item.brand}</td>
-                <td>{item.category}</td>
-                <td>{item.description}</td>
-                <td>{item.stock}</td>
+            {products.map((products) => (
+              <tr key={products.id_product} className="table-row">
+                <td>{products.id_product}</td>
+                <td>{products.name_product}</td>
+                <td>{products.price}</td>
+                <td>{products.brand}</td>
+                <td>{products.category}</td>
+                <td>{products.description}</td>
+                <td>{products.stock}</td>
                 <td>
                   <button
                     className="removeButton"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removeproducts(products.id)}
                   >
                     Remove
                   </button>

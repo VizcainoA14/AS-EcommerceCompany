@@ -14,10 +14,9 @@ export const Profile = () => {
     isAuthenticated && (
       <div>
         <img className="img" src={user.picture} alt={user.name} />
-        <h2>Welcome, {user.name}!</h2>
-        <p>Email: {user.email}</p>
-        <p>Nickname: {user.nickname}</p>
       </div>
     )
   );
 };
+
+export default Profile;

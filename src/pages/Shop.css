@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.flex-container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-left: calc(var(--bs-gutter-x) / -2);
+}
+
+.flex-item {
+  box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.10);
+  border-radius: 0 !important;
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+  min-width: 80px;
+  max-height: 60px;
+}
