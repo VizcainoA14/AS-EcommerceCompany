@@ -5,14 +5,11 @@ import Header from "../components/Header";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const Inventory = () => {
-  const { user, isAuthenticated } = useAuth0();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
-
-  
 
   const get_products = async () => {
     let accessToken = await get_token;
@@ -20,6 +17,7 @@ export const Inventory = () => {
       setAccessToken(result.__raw);
     });
     const token = accessToken.__raw;
+
     setLoading(true);
     fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
       method: "GET",
@@ -38,7 +36,8 @@ export const Inventory = () => {
       .catch((error) => {
         setError(error);
       })
-      .finally(() => setLoading(false));  
+      .finally(() => setLoading(false));
+    
   };
 
   const addproducts = () => {
@@ -55,29 +54,36 @@ export const Inventory = () => {
   };
 
   const removeproducts = async (id) => {
+    const data = ""
     let accessToken = await get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
     const token = accessToken.__raw;
-    fetch('http://127.0.0.1:8000/holis', {
-          method: 'DELETE',
-          headers: {
-            Authorization: "Bearer " + token,
-            Content_type: "application/json",
-          },
-          body: JSON.stringify(data),
-          })
-          .then((response) => response.json())
-          .then((data) => {
-              console.log(data);
-              window.location.reload();
-          })
-          .catch((error) => {
-              console.error(error);
-          });
+    fetch('http://127.0.0.1:8000/DELETE_PRODUCT/?id_product='+id, {
+      method: 'DELETE',
+      headers: {
+        Authorization: "Bearer " + token,
+        Content_type: "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        get_products();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
-  get_products();
+
+  useEffect(() => {   
+    get_products();
+  }, []);
+
+  if (loading) return "Loading...";
+
 
   return (
     <main>
@@ -112,7 +118,7 @@ export const Inventory = () => {
                 <td>
                   <button
                     className="removeButton"
-                    onClick={() => removeproducts(products.id)}
+                    onClick={() => removeproducts(products.id_product)}
                   >
                     Remove
                   </button>

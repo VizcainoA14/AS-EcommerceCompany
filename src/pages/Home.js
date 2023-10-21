@@ -3,7 +3,6 @@ import Propaganda from "../assets/img/Propaganda.png";
 
 
 export const Home = () => {
-  // Tu lógica y JSX aquí
   return (
     <div className="home-container">
       <div className="content-container">
