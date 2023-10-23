@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-
 export const Header = () => {
   const { isAuthenticated, user } = useAuth0();
   const [roles, setRoles] = useState([]);
@@ -22,7 +21,6 @@ export const Header = () => {
   });
   const token = accessToken.__raw;
 
-
   useEffect(() => {
     if (isAuthenticated) {
       // Realizar la primera solicitud fetch para obtener los roles
@@ -30,14 +28,12 @@ export const Header = () => {
     }
   }, [isAuthenticated, fetchData]);
 
-
   const fetchRoles = async () => {
     let accessToken = get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
     const token = accessToken.__raw;
-
 
     var myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -136,7 +132,7 @@ export const Header = () => {
                 className="input-search"
                 type="text"
                 placeholder="Search"
-              ></input>
+              />
               <div className="icon-fa-search">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
@@ -149,7 +145,7 @@ export const Header = () => {
               <div className="__header_div-logout-component __header-logout-container-item">
                 <LogoutButton />
               </div>
-            </div>
+      </div>
           </header>
         </>
       ) : (
@@ -177,7 +173,7 @@ export const Header = () => {
                 className="input-search"
                 type="text"
                 placeholder="Search"
-              ></input>
+              />
               <div className="icon-fa-search">
                 <FontAwesomeIcon icon={faSearch} />
               </div>

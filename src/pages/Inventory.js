@@ -11,10 +11,6 @@ export const Inventory = () => {
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
 
-  
-
-  
-
   const get_products = async () => {
     let accessToken = await get_token;
     get_token.then((result) => {
@@ -41,7 +37,6 @@ export const Inventory = () => {
         setError(error);
       })
       .finally(() => setLoading(false));
-    
   };
 
   const addproducts = () => {
@@ -58,15 +53,15 @@ export const Inventory = () => {
   };
 
   const removeproducts = async (id) => {
-    const data = ""
+    const data = "";
     let accessToken = await get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
-    
+
     const token = accessToken.__raw;
-    fetch('http://127.0.0.1:8000/DELETE_PRODUCT/?id_product='+id, {
-      method: 'DELETE',
+    fetch("http://127.0.0.1:8000/DELETE_PRODUCT/?id_product=" + id, {
+      method: "DELETE",
       headers: {
         Authorization: "Bearer " + token,
         Content_type: "application/json",
@@ -83,12 +78,11 @@ export const Inventory = () => {
       });
   };
 
-  useEffect(() => {   
+  useEffect(() => {
     get_products();
   }, []);
 
   if (loading) return "Loading...";
-
 
   return (
     <main>

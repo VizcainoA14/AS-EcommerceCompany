@@ -1,23 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "../App.css";
+
 .title-about {
   text-align: center;
+  margin: 0;
+  font-size: 50px;
+  font-weight: lighter;
 }
 
 .__div-section-1 {
-  text-align: center;
-  background: var(--bs--success);
-  width: auto;
-  height: 300px;
+  background: var(--section-1-about-background);
+  color: var(--section-1-about-text);
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+}
+
+.__div-section-1 > div {
+  padding: 3rem 0;
+}
+
+.container-about-section-1 {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 7.5rem;
+  width: 600px;
+}
+
+.container-about-section-1 > h2 {
+  font-size: 2.5rem;
+  text-align: start;
+  margin: 0;
+}
+
+.container-about-section-1 > p {
+  justify-content: start;
+  font-size: 1.25rem;
+  padding-top: 10px;
+  text-align: start;
+  margin: 0;
 }
 
 .__div-section-2 {
-  padding-top: 3rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 6rem !important;
   padding-bottom: 3rem !important;
   background: #fff;
   width: auto;
-  height: 500px;
+  height: 27.75rem;
   text-align: center;
   flex-direction: column;
+}
+
+.__div-section-2 > div {
+  flex-wrap: wrap;
 }
 
 .shadow {
@@ -28,38 +68,117 @@
   display: flex;
   background: #fff;
   width: calc(1275 / 16);
-  height: 18.75rem;
+  height: 15.75rem;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .__div_section-2-father-about > div {
   display: flex;
   flex-direction: column;
   margin-right: 1.5625rem;
-  width: 12.5rem;
-  height: 12.5rem; 
+  width: 16.5rem;
+  height: 13.5rem;
+
 }
 
-.__div_section-2-father-about > div:first-child {
+.__div_section-2-child-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.__div_section-2-father-about > div:nth-child(2) {
+.transition-section-2-about {
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.__div_section-2-father-about > div:nth-child(3) {
+.transition-section-2-about:hover {
+  background: var(--about-icon-color);
+  color: #f5f5f5;
 }
 
-.__div_section-2-father-about > div:nth-child(4) {
+.about-icons-section-2 {
+  transition: color 0.3s ease; /* Añade la transición de color para los iconos */
+}
+
+.transition-section-2-about:hover .about-icons-section-2 {
+  color: #f5f5f5;
+}
+
+.about-icons-section-2 {
+  height: 3.75rem;
+  color: var(--about-icon-color);
+  display: block;
+}
+
+.__div_section-2-child-about > div {
+  margin-top: 40px;
 }
 
 .__div-section-3 {
-  background: var(--bs-green);
+  background: var(--section-3-about);
+  padding-top: 6rem !important;
+  padding-bottom: 4rem !important;
   width: auto;
-  height: 300px;
+  text-align: center;
+  flex-direction: column;
 }
 
-:root {
-  --bs-green: #198754;
-  --bs--success: #20c997;
+.__about--div--section-3-child-inner-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;  
+}
+
+.__about--div--section-3-child-inner-div > :nth-child(-n + 4) {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition:  filter .7s ease, opacity .7s ease;
+}
+
+.__about--div--section-3-child-inner-div > :nth-child(-n + 4):hover { 
+  cursor: pointer;
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+
+.__about--div--section-3-child-inner-div-img-1 > img {
+  max-width: 100%;
+  height: 9rem;
+}
+
+.__about--div--section-3-child-inner-div-img-2 > img {
+  max-width: 100%;
+  margin-bottom: 1.4375rem;
+  max-height: 7rem;
+}
+
+.__about--div--section-3-child-inner-div-img-3 > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.__about--div--section-3-child-inner-div-img-4 > img {
+  max-width: 55%;
+  max-width: 15rem;
+  height: auto;
+  position: relative; 
+  right: 2rem;
+}
+
+.__div-section-4 {
+  background: var(--section-4-about-background);
+  padding-top: 6rem !important;
+  padding-bottom: 3rem !important;
+  width: auto;
+  height: auto;
+  text-align: center;
+  flex-direction: column;
 }
