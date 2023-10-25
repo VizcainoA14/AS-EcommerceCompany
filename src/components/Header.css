@@ -2,18 +2,17 @@
 
 .header {
   width: auto;
+  max-width: 100%;
   top: 0;
   display: flex;
-  background: #f5f5f5;
-  padding: 0px;
-  margin: 0;
+  background: #fff;
 }
 
 .icon-img {
   max-width: 200px;
   max-height: 100px;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 nav a {
@@ -22,16 +21,15 @@ nav a {
 
 .nav {
   display: flex;
-  background: #f5f5f5;
+  background: #fff;
   align-items: center;
-  padding: 0;
 }
 
 .header-li {
   font-size: 17px;
   display: inline-block;
   padding: 0 15px 0 15px;
-  margin-right: .7rem;
+  margin-right: 0.7rem;
 }
 
 .ul-list {
@@ -60,7 +58,7 @@ nav a {
   left: 5rem;
 }
 
-.input-search-container > input  { 
+.input-search-container > input {
   margin-right: none;
 }
 
@@ -77,42 +75,38 @@ nav a {
 .icon-fa-search {
   position: relative;
   right: 5rem;
-  margin-top: .35rem;
+  margin-top: 0.35rem;
   background-color: transparent;
-  padding: 0 10px; 
+  padding: 0 10px;
   border: none;
   outline: none;
   color: #676766;
   cursor: pointer;
 }
 
-.login-header-container { 
+.login-header-container {
   align-self: center;
-  width: auto;
-} 
-
-.__header-logout-container {
-  background-color: default;
-  display: flex;
-  flex-direction: row;
-  margin-left: 0;
-  position: absolute;
-  margin-left: 1000px;
-  margin-top: 25px;
+  position: relative;
+  left: 20rem;
 }
 
-.__header-logout-container-item { 
+.__header-logout-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 3.2rem;
+}
+
+.__header-logout-container-item {
   align-self: center;
   margin: 0 -1.25rem;
-  position: relative; 
-  top: .4rem;
+  position: relative;
+  top: 0.4rem;
   left: 6rem;
 }
 
 
-.login-header-container {
-  position: relative;
-  left: 17rem;
-  display: flex;
-  align-items: end;
+
+.header {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }

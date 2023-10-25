@@ -1,0 +1,103 @@
+/* AddItem.css */
+.popup-content {
+  background-color: white;
+  padding: 2rem;
+  width: 40rem;
+  height: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #000;
+  border-radius: 0.7rem;
+  overflow: auto;
+}
+
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+.faTimes {
+  cursor: pointer;
+  color: #000;
+  font-size: 1.5rem;
+  background: none;
+}
+
+.popup-form-child {
+  margin: 0 0 0.7rem 0;
+}
+
+.popup-form > label {
+  margin: 0;
+  padding-bottom: 0.5rem;
+}
+
+.popup-form > input {
+  outline: none;
+  border: var(--border-input);
+  height: 1.5rem;
+}
+
+.popup-form > :nth-child(14) {
+}
+
+.button-form-add-item {
+  font-family: "Poppins";
+  border: none;
+  padding: 10px 25px;
+  color: #fff;
+  background: var(--login-signup-button);
+  border-radius: 30px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  width: min-content;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container > :nth-child(1) {
+  align-self: center;
+}
+
+.center-items {
+  display: flex;
+  justify-content: center;
+}
+
+.close {
+  font-family: "Poppins";
+  border: none;
+  padding: 10px 25px;
+  color: #fff;
+  background: #b00;
+  border-radius: 30px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  width: min-content;
+}
+
+.add-button {
+  font-family: "Poppins", sans-serif;
+  border: none;
+  display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 59px;
+  color: #000;
+  background: #99fbae;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}

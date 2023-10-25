@@ -3,6 +3,7 @@ import "./Inventory.css";
 import { useFetcher } from "react-router-dom";
 import Header from "../components/Header";
 import { useAuth0 } from "@auth0/auth0-react";
+import PopupForm from "../components/Additem/AddItem";
 
 export const Inventory = () => {
   const [products, setProducts] = useState([]);
@@ -10,87 +11,81 @@ export const Inventory = () => {
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
+  const { getIdTokenClaims } = useAuth0();
 
   const get_products = async () => {
-    let accessToken = await get_token;
-    get_token.then((result) => {
-      setAccessToken(result.__raw);
-    });
-    const token = accessToken.__raw;
-
-    setLoading(true);
-    fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + token,
-        Content_type: "application/json",
-      },
-    })
-      .then((Response) => {
-        if (!Response.ok) {
-          throw new Error(`Network response was not OK`);
-        }
-        return Response.json();
-      })
-      .then((json) => setProducts(json))
-      .catch((error) => {
-        setError(error);
-      })
-      .finally(() => setLoading(false));
-  };
-
-  const addproducts = () => {
-    const newproducts = {
-      id: products.length + 1,
-      name: `products ${products.length + 1}`,
-      price: "$10.000",
-      brand: "JBL",
-      category: "Computer",
-      description: "Default",
-      stock: 0,
-    };
-    setProducts([...products, newproducts]);
-  };
-
-  const removeproducts = async (id) => {
-    const data = "";
-    let accessToken = await get_token;
-    get_token.then((result) => {
-      setAccessToken(result.__raw);
-    });
-
-    const token = accessToken.__raw;
-    fetch("http://127.0.0.1:8000/DELETE_PRODUCT/?id_product=" + id, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + token,
-        Content_type: "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        get_products();
-      })
-      .catch((error) => {
-        console.error(error);
+    try {
+      let accessToken = await get_token;
+      get_token.then((result) => {
+        setAccessToken(result.__raw);
       });
+      const token = accessToken.__raw;
+  
+      setLoading(true);
+      const response = await fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      const json = await response.json();
+      setProducts(json);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
   };
-
+  
+  
+  
+  const removeproducts = async (id) => {
+    try {
+      let accessToken = await get_token;
+      get_token.then((result) => {
+        setAccessToken(result.__raw);
+      });
+  
+      const token = accessToken.__raw;
+      await fetch("http://127.0.0.1:8000/DELETE_PRODUCT/?id_product=" + id, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      get_products();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
   useEffect(() => {
-    get_products();
-  }, []);
+    const fetchData = async () => {
+      try {
+        const get_token = await getIdTokenClaims();
+        get_products(get_token);
+      } catch (error) {
+        // Manejar errores aquí
+        console.error("Error al obtener el token: ", error);
+      }
+    };
 
+    fetchData();
+  }, []);
+  
   if (loading) return "Loading...";
+  
 
   return (
     <main>
       <h1 className="title-inventory">INVENTORY</h1>
       <div className="grid-container-inventory">
-        <button className="add-button" onClick={addproducts}>
-          Add Product
-        </button>
+        <PopupForm/>
         <table className="table">
           <thead>
             <tr className="table-header">

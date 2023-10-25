@@ -16,17 +16,13 @@ export const Header = () => {
   const [fetchData, setFetchData] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
-  get_token.then((result) => {
-    setAccessToken(result.__raw);
-  });
-  const token = accessToken.__raw;
 
   useEffect(() => {
     if (isAuthenticated) {
       // Realizar la primera solicitud fetch para obtener los roles
       fetchRoles();
     }
-  }, [isAuthenticated, fetchData]);
+  }, []);
 
   const fetchRoles = async () => {
     let accessToken = get_token;
@@ -145,7 +141,7 @@ export const Header = () => {
               <div className="__header_div-logout-component __header-logout-container-item">
                 <LogoutButton />
               </div>
-      </div>
+            </div>
           </header>
         </>
       ) : (
@@ -162,9 +158,6 @@ export const Header = () => {
                 </li>
                 <li className="header-li">
                   <Link to="/about">About us</Link>
-                </li>
-                <li className="header-li">
-                  <Link to="/inventory">Inventory</Link>
                 </li>
               </ul>
             </nav>
