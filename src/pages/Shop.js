@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Shop.css";
 import { Link } from "react-router-dom";
 import shop_01 from "../assets/img/shop_01.jpg";
@@ -16,6 +16,39 @@ import { useState } from "react";
 
 export const Shop = () => {
   const [Images, setImages] = useState([]);
+
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+
+  const get_products = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      const json = await response.json();
+      setProducts(json);
+      console.log(products)
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => { 
+
+    get_products();
+
+  }, []);
 
   const addItem = () => {
     // Agregar nueva imagen
@@ -38,6 +71,39 @@ export const Shop = () => {
     <main className="main-content-shop">
       <div className="title-shop">Our Products!</div>
       <div className="grid-container">
+      {products.map((products, index) => (
+          <div key={index} className="grid-item">
+            <div className="card-image-container">
+              <img src={products.image_1} alt={`shop_${index + 1}`} />
+            </div>
+            <div className="card-text-container">
+            <Link className="link-shop">{ products.name_product}</Link>
+              <div className="card-text-container-sizes">
+              <p>{ products.brand}</p>
+              </div>
+              <div className="flex-container-star-shop">
+                <div className="star">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+                <div className="star">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+                <div className="star">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+                <div className="star">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+                <div className="star">
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+              </div>
+              <div className="price-container-shop">
+              <p>${ products.price}</p>
+              </div>
+            </div>
+          </div>
+        ))}
         <div className="grid-item">
           <div>
             <div className="card-image-container">
@@ -340,39 +406,6 @@ export const Shop = () => {
             </div>
           </div>
         </div>
-        {Images.map((image, index) => (
-          <div key={index} className="grid-item">
-            <div className="card-image-container">
-              <img src={shop_01} alt={`shop_${index + 1}`} />
-            </div>
-            <div className="card-text-container">
-              <Link className="link-shop">Mouse Gamer T-Dagger</Link>
-              <div className="card-text-container-sizes">
-                <p>Lieutenant</p>
-              </div>
-              <div className="flex-container-star-shop">
-                <div className="star">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div className="star">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div className="star">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div className="star">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-                <div className="star">
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
-              </div>
-              <div className="price-container-shop">
-                <p>$20.99</p>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
       <button onClick={addItem}>Agregar Imagen</button>
       <button onClick={clearImages}>Borrar Imagenes Nuevas</button>

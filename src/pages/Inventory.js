@@ -15,17 +15,10 @@ export const Inventory = () => {
 
   const get_products = async () => {
     try {
-      let accessToken = await get_token;
-      get_token.then((result) => {
-        setAccessToken(result.__raw);
-      });
-      const token = accessToken.__raw;
-  
       setLoading(true);
       const response = await fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
         method: "GET",
         headers: {
-          Authorization: "Bearer " + token,
           "Content-Type": "application/json",
         },
       });

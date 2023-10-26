@@ -18,14 +18,15 @@ export const Header = () => {
   const get_token = useAuth0().getIdTokenClaims();
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (isAuthenticated && !fetchData) {
       // Realizar la primera solicitud fetch para obtener los roles
       fetchRoles();
+      setFetchData(true); // Establecer fetchData a true para evitar futuras solicitudes
     }
-  }, []);
+  }, [isAuthenticated, fetchData]);
 
   const fetchRoles = async () => {
-    let accessToken = get_token;
+    let accessToken = await get_token;
     get_token.then((result) => {
       setAccessToken(result.__raw);
     });
@@ -39,7 +40,7 @@ export const Header = () => {
       headers: myHeaders,
       redirect: "follow",
     };
-    try {
+  
       var myHeaders = new Headers();
       myHeaders.append("Accept", "application/json");
       myHeaders.append("Authorization", `Bearer ` + token);
@@ -96,9 +97,7 @@ export const Header = () => {
       } else {
         console.error("Invalid data format:", data);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+  
   };
 
   return (
