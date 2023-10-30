@@ -11,37 +11,31 @@
 
 .__div-section-1 {
   background: var(--section-1-about-background);
-  color: var(--section-1-about-text);
   width: 100%;
   flex-direction: row;
   display: flex;
+  justify-content: space-evenly;
 }
 
-.__div-section-1 > div {
-  padding: 3rem 0;
+.__div-section-1 > :nth-child(-n + 2) {
+  margin: 0 2rem 0 2rem;
+  padding: 2rem;
 }
 
-.container-about-section-1 {
+.container-about-section-1 { 
+  color: #fff;
   display: flex;
-  align-items: start;
-  justify-content: center;
   flex-direction: column;
-  margin-left: 7.5rem;
-  width: 600px;
+  justify-content: center;
 }
 
-.container-about-section-1 > h2 {
-  font-size: 2.5rem;
-  text-align: start;
+.container-about-section-1 h2 { 
+  font-size: 2rem;
   margin: 0;
 }
 
-.container-about-section-1 > p {
-  justify-content: start;
-  font-size: 1.25rem;
-  padding-top: 10px;
-  text-align: start;
-  margin: 0;
+.container-about-section-1 p { 
+  line-height: 2;
 }
 
 .__div-section-2 {

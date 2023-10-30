@@ -4,14 +4,13 @@
   padding: 2rem;
   width: 40rem;
   height: 30rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 3rem auto;
   border: 2px solid #000;
   border-radius: 0.7rem;
   overflow: auto;
 }
+
+
 
 .popup-form {
   display: flex;
@@ -28,7 +27,7 @@
 }
 
 .popup-form-child {
-  margin: 0 0 0.7rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .popup-form > label {
@@ -46,28 +45,19 @@
 }
 
 .button-form-add-item {
-  font-family: "Poppins";
   border: none;
-  padding: 10px 25px;
+  padding: 0.625rem 1.5625rem;
   color: #fff;
   background: var(--login-signup-button);
-  border-radius: 30px;
-  font-size: 19px;
+  border-radius: 1.875rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   cursor: pointer;
-  width: min-content;
+  width: 7rem;
+  margin-bottom: .7rem;
 }
 
-.flex-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-container > :nth-child(1) {
-  align-self: center;
-}
-
-.center-items {
+.submit-form-container { 
   display: flex;
   justify-content: center;
 }
@@ -75,29 +65,42 @@
 .close {
   font-family: "Poppins";
   border: none;
-  padding: 10px 25px;
+  padding: 0.625rem 1.5625rem;
   color: #fff;
   background: #b00;
-  border-radius: 30px;
-  font-size: 19px;
+  border-radius: 1.875rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   cursor: pointer;
-  width: min-content;
+  width: 7rem;
 }
 
 .add-button {
   font-family: "Poppins", sans-serif;
   border: none;
-  display: flex;
-  margin: 20px auto;
+  display: flex; 
   justify-content: center;
   align-items: center;
-  width: 220px;
-  height: 59px;
+  width: 13.75rem; 
+  height: 3.6875rem; 
   color: #000;
   background: #99fbae;
-  border-radius: 50px;
-  font-size: 19px;
+  border-radius: 3.125rem; 
+  font-size: 1.1875rem; 
   font-weight: 700;
   cursor: pointer;
+}
+
+.add-button:hover {
+  transition: all .5s ease;
+  transform: scale(1.1);
+}
+
+label { 
+  font-weight: normal;
+  font-size: large;
+}
+
+input { 
+  padding: .3rem 0 .3rem .5rem;
 }

@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-.img { 
-    width: 50%;
-    height: auto;
-    border-radius: 9px;
-    border: none;
-    outline: 20px;
-    
-  }
-  
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.4rem;
+  margin-right: 1rem;
+}

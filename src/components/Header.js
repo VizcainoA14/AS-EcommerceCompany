@@ -105,20 +105,20 @@ export const Header = () => {
       {isAuthenticated ? (
         <>
           <header className="header">
-            <img className="icon-img" src={iconImage} alt="Icon" />
+            <img className="logo-img" src={iconImage} alt="Icon" />
             <nav className="nav">
               <ul className="ul-list">
                 <li className="header-li">
-                  <Link to="/">Home</Link>
+                  <Link className="link-header" to="/">Home</Link>
                 </li>
                 <li className="header-li">
-                  <Link to="/shop">Shop</Link>
+                  <Link className="link-header" to="/shop">Shop</Link>
                 </li>
                 <li className="header-li">
-                  <Link to="/about">About us</Link>
+                  <Link className="link-header" to="/about">About us</Link>
                 </li>
                 <li className="header-li">
-                  <Link to="/inventory">Inventory</Link>
+                  <Link className="link-header" to="/inventory">Inventory</Link>
                 </li>
               </ul>
             </nav>
@@ -128,35 +128,30 @@ export const Header = () => {
                 type="text"
                 placeholder="Search"
               />
-              <div className="icon-fa-search">
+              <div className="search-button">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
             </div>
             <div className="__header-logout-container">
-              <div className="__header_div-profile-component __header-logout-container-item">
-                {" "}
-                <Profile />
-              </div>
-              <div className="__header_div-logout-component __header-logout-container-item">
+                <Profile/>
                 <LogoutButton />
-              </div>
             </div>
           </header>
         </>
       ) : (
         <>
           <header className="header">
-            <img className="icon-img" src={iconImage} alt="Icon" />
+            <img className="logo-img" src={iconImage} alt="Icon" />
             <nav className="nav">
               <ul className="ul-list">
                 <li className="header-li">
-                  <Link to="/">Home</Link>
+                  <Link className="link-header" to="/">Home</Link>
                 </li>
                 <li className="header-li">
-                  <Link to="/shop">Shop</Link>
+                  <Link className="link-header" to="/shop">Shop</Link>
                 </li>
                 <li className="header-li">
-                  <Link to="/about">About us</Link>
+                  <Link className="link-header" to="/about">About us</Link>
                 </li>
               </ul>
             </nav>
@@ -166,7 +161,7 @@ export const Header = () => {
                 type="text"
                 placeholder="Search"
               />
-              <div className="icon-fa-search">
+              <div className="search-button">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
             </div>

@@ -20,28 +20,15 @@ export const About = () => {
         <div className="container-about-section-1">
           <h2>About Us</h2>
           <p>
-            {/*
-          Dear customers, It is a pleasure to introduce you to our electronic
-          products sales company. In our online store, we offer a wide variety
-          of high-quality electronic products, from mobile phones to smart TVs
-          and audio devices. At our company, we strive to offer the highest
-          quality products at competitive prices. We ensure that our products
-          are from well-known brands and proven quality, so that our customers
-          can be sure that they are purchasing reliable and long-lasting
-          products. Additionally, our customer service team is always available
-          to help our customers with any questions or issues they may have. We
-          are proud to offer exceptional customer service and are committed to
-          ensuring our customers' satisfaction. Sincerely, The E-Commerce
-          Company Team*/}
             Dear customers, It is a pleasure to introduce you to our electronic
             products sales company. In our online store, we offer a wide variety
             of high-quality electronic products, from mobile phones to smart TVs
             and audio devices
           </p>
-        </div>
-        <div className="">
-          <img src={imgAboutSection1} alt="Computers" />
-        </div>
+          </div>
+        <div className="section-1-container-img">
+          <img className="publicity-section-1-about-us" src={imgAboutSection1} alt="Computers" />
+        </div>  
       </section>
       <section className="__div-section-2">
         <div>

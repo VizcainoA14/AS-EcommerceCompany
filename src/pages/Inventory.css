@@ -16,22 +16,7 @@
   border: none;
 }
 
-.add-button {
-  font-family: "Poppins", sans-serif;
-  border: none;
-  display: flex;
-  margin: 20px auto;
-  justify-content: center;
-  align-items: center;
-  width: 220px;
-  height: 59px;
-  color: #000;
-  background: #99fbae;
-  border-radius: 50px;
-  font-size: 19px;
-  font-weight: 700;
-  cursor: pointer;
-}
+
 
 .list {
   list-style-type: none;

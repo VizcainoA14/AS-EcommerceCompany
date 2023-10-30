@@ -21,7 +21,6 @@ export const Shop = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-
   const get_products = async () => {
     try {
       setLoading(true);
@@ -36,7 +35,7 @@ export const Shop = () => {
       }
       const json = await response.json();
       setProducts(json);
-      console.log(products)
+      console.log(products);
     } catch (error) {
       setError(error);
     } finally {
@@ -44,10 +43,8 @@ export const Shop = () => {
     }
   };
 
-  useEffect(() => { 
-
+  useEffect(() => {
     get_products();
-
   }, []);
 
   const addItem = () => {
@@ -69,17 +66,17 @@ export const Shop = () => {
 
   return (
     <main className="main-content-shop">
-      <div className="title-shop">Our Products!</div>
+      <h1>Our Products!</h1>
       <div className="grid-container">
-      {products.map((products, index) => (
+        {products.map((products, index) => (
           <div key={index} className="grid-item">
             <div className="card-image-container">
               <img src={products.image_1} alt={`shop_${index + 1}`} />
             </div>
             <div className="card-text-container">
-            <Link className="link-shop">{ products.name_product}</Link>
+              <Link className="link-shop">{products.name_product}</Link>
               <div className="card-text-container-sizes">
-              <p>{ products.brand}</p>
+                <p>{products.brand}</p>
               </div>
               <div className="flex-container-star-shop">
                 <div className="star">
@@ -99,7 +96,7 @@ export const Shop = () => {
                 </div>
               </div>
               <div className="price-container-shop">
-              <p>${ products.price}</p>
+                <p>${products.price}</p>
               </div>
             </div>
           </div>
@@ -145,7 +142,9 @@ export const Shop = () => {
               <img src={shop_02} alt="shop_01" />
             </div>
             <div className="card-text-container">
-              <Link to="/buy-product" className="link-shop">Headphones XYZ-300</Link>
+              <Link to="/buy-product" className="link-shop">
+                Headphones XYZ-300
+              </Link>
               <div className="card-text-container-sizes">
                 <p>SoundMasters</p>
               </div>
@@ -405,11 +404,9 @@ export const Shop = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <button onClick={addItem}>Agregar Imagen</button>
-      <button onClick={clearImages}>Borrar Imagenes Nuevas</button>
-      <button onClick={clearLastItem}>Borrar ultima imagen</button>
+        </div>       
+
+      </div> {/* End Grid-Container */}
     </main>
   );
 };

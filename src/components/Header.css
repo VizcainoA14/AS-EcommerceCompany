@@ -1,39 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
 .header {
-  width: auto;
-  max-width: 100%;
-  top: 0;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #fff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 0.625;
 }
 
-.icon-img {
-  max-width: 200px;
-  max-height: 100px;
-  padding: 10px;
-  background-color: #fff;
-}
-
-nav a {
-  text-decoration: none;
+.logo-img {
+  display: flex;
+  width: 12%;
+  padding: .5rem 0 .5rem 0;
+  margin-left: .5rem;
 }
 
 .nav {
   display: flex;
-  background: #fff;
   align-items: center;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  width: auto;
 }
 
 .header-li {
-  font-size: 17px;
-  display: inline-block;
-  padding: 0 15px 0 15px;
-  margin-right: 0.7rem;
+  margin-right: 0 1.25rem 0 0;
 }
 
 .ul-list {
+  margin: 0;
+  display: flex;
+  gap: 1.7rem;
   padding: 0;
+  list-style-type: none;
+  height: min-content;
 }
 
 .header-login-signup-button {
@@ -49,64 +49,48 @@ nav a {
 }
 
 .input-search-container {
-  margin-top: 2.6rem;
   display: flex;
-  height: 3rem;
-  text-align: center;
-  flex-direction: row;
-  position: relative;
-  left: 5rem;
-}
-
-.input-search-container > input {
-  margin-right: none;
+  align-items: center;
+  margin-right: 3rem;
+  gap: .4rem;
 }
 
 .input-search {
-  position: relative;
-  right: 2.5rem;
-  padding: 10px;
-  width: 20.625rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
+  padding: 0.5rem 0.5rem 0.5rem 0.7rem;
+  width: 20rem;
+  border-radius: 0.4rem;
+  border: .125rem solid #ddd;
+  height: min-content;
 }
 
-.icon-fa-search {
-  position: relative;
-  right: 5rem;
-  margin-top: 0.35rem;
-  background-color: transparent;
-  padding: 0 10px;
-  border: none;
-  outline: none;
-  color: #676766;
+.search-button {
+  color: #777;
+  font-size: larger;
   cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  padding: .29rem .5rem;
 }
 
 .login-header-container {
   align-self: center;
-  position: relative;
-  left: 20rem;
+  margin-right: 2rem;
+}
+
+.link-header {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #0000ee;
+}
+
+.link-header:visited {
+  color: #800080;
 }
 
 .__header-logout-container {
   display: flex;
-  flex-direction: row;
-  position: relative;
-  left: 3.2rem;
-}
-
-.__header-logout-container-item {
-  align-self: center;
-  margin: 0 -1.25rem;
-  position: relative;
-  top: 0.4rem;
-  left: 6rem;
-}
-
-
-
-.header {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 1.5rem;
 }
