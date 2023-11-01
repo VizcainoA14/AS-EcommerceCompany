@@ -1,25 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins";
+}
 
 body {
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, "Poppins", sans-serif, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
   height: 100%;
-  background: -webkit-linear-gradient(
-    #d6e9fd,
-    #a4c8ff
-  ); /* Para Safari 5.1 to 6.0 */
-  background: #a4c8ff;
-  background-size: cover; /* Ajusta el tamaño del fondo */
-  background-attachment: fixed; /* Fija el fondo para evitar el desplazamiento */
+  background: -webkit-linear-gradient(#f5f5f5);
+  background: #f5f5f5;
   background-repeat: no-repeat; /* Evita la repetición del fondo */
 }
 
 :root {
-  --background-official: linear-gradient(#d6e9fd, #a4c8ff);
-  --login-signup-button: #1065cd /*#5f97ff*/;
+  --login-signup-button: #1065cd /**/;
   --bs-green: #198754;
   --bs--success: #20c997;
   --about-icon-color: #1065cd;
@@ -28,11 +25,9 @@ body {
   --section-1-about-background: #1065cd;
   --section-4-about-background: #212529;
   --border-input: 1px solid #ccc;
+  --text-light: #cfd6e1;
 }
 
 .main-content {
   margin: 0 !important;
 }
-
-
-

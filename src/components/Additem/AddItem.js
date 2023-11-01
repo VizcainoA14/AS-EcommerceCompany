@@ -4,6 +4,7 @@ import "./Additem.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import Inventory from "../../pages/Inventory";
 
+
 Modal.setAppElement("#root");
 
 export const PopupForm = () => {
@@ -21,7 +22,12 @@ export const PopupForm = () => {
   const [image2, setImage2] = useState(null);
   const [image3, setImage3] = useState(null);
 
-  useEffect(() => {
+
+
+
+
+  useEffect(() => { 
+
     setName_product("Name");
     setPrice(0);
     setBrand("Brand");
@@ -31,7 +37,11 @@ export const PopupForm = () => {
     setImage1("Image 1");
     setImage2(null);
     setImage3(null);
+
+
   }, []);
+
+
 
   const handleSubmit = async (event) => {
     let accessToken = await get_token;
@@ -49,26 +59,26 @@ export const PopupForm = () => {
       stock: stock,
     };
 
+
     event.preventDefault();
-    fetch(
-      `http://127.0.0.1:8000/ADD_PRODUCT/?image1=${encodeURIComponent(image1)}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ` + token,
-        },
-        body: JSON.stringify(requestBody),
-      }
-    )
+    fetch(`https://backend-ecommerce-api-fcrd.onrender.com/ADD_PRODUCT/?image1=${encodeURIComponent(image1)}`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ` + token,
+      },
+      body:
+        JSON.stringify(requestBody),
+    })
       .then((response) => response.json())
       .then((data) => {
-        window.location.reload();
+        window.location.reload(); 
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
+
 
   const togglePopUp = () => {
     setIsOpen(!isOpen);
@@ -87,8 +97,7 @@ export const PopupForm = () => {
       >
         <form className="popup-form" onSubmit={handleSubmit}>
           <label className="popup-form-child">Name</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             placeholder="Name"
             type="text"
             value={name_product}
@@ -96,9 +105,9 @@ export const PopupForm = () => {
             onChange={(event) => setName_product(event.target.value)}
           />
 
+
           <label className="popup-form-child">Price</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             placeholder="Price"
             type="number"
             value={price}
@@ -106,9 +115,9 @@ export const PopupForm = () => {
             onChange={(event) => setPrice(event.target.value)}
           />
 
+
           <label className="popup-form-child">Brand</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             placeholder="Brand"
             type="text"
             value={brand}
@@ -116,9 +125,9 @@ export const PopupForm = () => {
             onChange={(event) => setBrand(event.target.value)}
           />
 
+
           <label className="popup-form-child">Category</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             placeholder="Category"
             type="text"
             value={category}
@@ -126,9 +135,9 @@ export const PopupForm = () => {
             onChange={(event) => setCategory(event.target.value)}
           />
 
+
           <label className="popup-form-child">Description</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             placeholder="Description"
             type="text"
             value={description}
@@ -136,49 +145,49 @@ export const PopupForm = () => {
             onChange={(event) => setDescription(event.target.value)}
           />
 
+
           <label className="popup-form-child">Stock</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             type="number"
             value={stock}
             required
             onChange={(event) => setStock(event.target.value)}
           />
 
+
           <label className="popup-form-child">Image 1</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             type="text"
             value={image1}
             required
             onChange={(event) => setImage1(event.target.value)}
           />
 
+
           <label className="popup-form-child">Image 2</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             type="text"
             value={image2}
             onChange={(event) => setImage2(event.target.value)}
           />
 
+          
           <label className="popup-form-child">Image 3</label>
-          <input
-            className="popup-form-child"
+          <input className="popup-form-child"
             type="text"
             value={image3}
             onChange={(event) => setImage3(event.target.value)}
           />
+
+          <div className="center-items">
+            <button
+              className="popup-form-child button-form-add-item"
+              type="submit">
+              Enviar
+            </button>
+          </div>
         </form>
-        <div className="submit-form-container">
-          <button
-            className=" button-form-add-item"
-            type="submit"
-          >
-            Enviar
-          </button>
-        </div>
-        <div className="submit-form-container">
+        <div className="flex-container">
           <div>
             <button className="close" onClick={togglePopUp}>
               Close

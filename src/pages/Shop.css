@@ -1,21 +1,24 @@
 .main-content-shop {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 3rem 0.8rem;
   margin: 0 2rem;
 }
 
-.main-content-shop > h1 { 
-  font-size: 3rem;
-  font-weight: bold; 
-  margin: auto;
+.title-shop { 
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  font-size: 3.125rem;
+  font-weight: 500;
+  color: #000;
 }
 
 .grid-container {
   margin-top: 1rem;
   display: grid;
-  background: #fff;
+  background: transparent;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(1fr, 12rem));
   grid-auto-rows: 1fr;
@@ -23,7 +26,6 @@
   grid-auto-flow: dense;
   gap: 1.5rem;
   padding: 2rem;
-  
 }
 
 .grid-item {
@@ -32,8 +34,8 @@
   border: 0.12rem solid rgba(0, 0, 0, 0.125);
 }
 
-.grid-item:hover { 
-  transition: all .5s ease;
+.grid-item:hover {
+  transition: all 0.5s ease;
   transform: scale(1.1); /* Animation images*/
 }
 
@@ -54,8 +56,6 @@
   width: 100%;
   height: auto;
 }
-
-
 
 .card-text-container {
   padding: 0.8rem;
@@ -113,4 +113,4 @@
   margin: 0;
 }
 
-
+/* I wanto to adapt the design to an iphone 11 resolution */

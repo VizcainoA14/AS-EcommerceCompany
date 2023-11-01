@@ -33,7 +33,7 @@ export const About = () => {
       <section className="__div-section-2">
         <div>
           <div>
-            <p className="title-about">Our Services</p>
+            <h2 className="title-about">Our Services</h2>
             <p className="flex-container-about-section-2-span-1">
               At our company, we strive to offer the highest quality products at
               competitive prices.
@@ -49,7 +49,7 @@ export const About = () => {
                   className="about-icons-section-2"
                 />
               </div>
-              <h2>Delivery Services</h2>
+              <h2 className="about-services-section-2">Delivery Services</h2>
             </div>
           </div>
           <div className="transition-section-2-about shadow">
@@ -60,7 +60,7 @@ export const About = () => {
                   className="about-icons-section-2"
                 />
               </div>
-              <h2>Shipping & Return</h2>
+              <h2 className="about-services-section-2 ">Shipping & Return</h2>
             </div>
           </div>
           <div className="transition-section-2-about shadow">
@@ -71,7 +71,7 @@ export const About = () => {
                   className="about-icons-section-2"
                 />
               </div>
-              <h2>Promotion</h2>
+              <h2 className="about-services-section-2 ">Promotion</h2>
             </div>
           </div>
           <div className="transition-section-2-about shadow">
@@ -82,7 +82,7 @@ export const About = () => {
                   className="about-icons-section-2"
                 />
               </div>
-              <h2>24 Hours Service</h2>
+              <h2 className="about-services-section-2 ">24 Hours Service</h2>
             </div>
           </div>
         </div>

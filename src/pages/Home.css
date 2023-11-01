@@ -1,14 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Inter:400,900,700,600,italic");
-
-* {
-  font-family: "Poppins";
-}
-
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2.5rem;
 }
 
 .title-home {
@@ -74,7 +68,6 @@
 
 .publicity-img {
   width: 45%;
-  border-radius: 10px;
 }
 
 .shop-now {

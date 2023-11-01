@@ -16,7 +16,7 @@ export const Inventory = () => {
   const get_products = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
+      const response = await fetch("https://backend-ecommerce-api-fcrd.onrender.com/GET_PRODUCT/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const Inventory = () => {
       });
   
       const token = accessToken.__raw;
-      await fetch("http://127.0.0.1:8000/DELETE_PRODUCT/?id_product=" + id, {
+      await fetch("https://backend-ecommerce-api-fcrd.onrender.com/DELETE_PRODUCT/?id_product=" + id, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,

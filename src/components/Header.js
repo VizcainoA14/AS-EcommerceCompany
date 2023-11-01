@@ -7,7 +7,11 @@ import LoginButton from "./Login";
 import LogoutButton from "./Logout";
 import Profile from "./Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 export const Header = () => {
@@ -40,85 +44,109 @@ export const Header = () => {
       headers: myHeaders,
       redirect: "follow",
     };
-  
-      var myHeaders = new Headers();
-      myHeaders.append("Accept", "application/json");
-      myHeaders.append("Authorization", `Bearer ` + token);
 
-      var requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow",
-      };
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Authorization", `Bearer ` + token);
 
-      const token_auth0 = await fetch(
-        `http://127.0.0.1:8000/GET_MANAGEMENT_TOKEN/`,
-        requestOptions
-      );
-      const data_token = await token_auth0.json();
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
 
-      var myHeaders = new Headers();
-      myHeaders.append("Accept", "application/json");
-      myHeaders.append("Authorization", `Bearer ` + data_token);
+    const token_auth0 = await fetch(
+      `https://backend-ecommerce-api-fcrd.onrender.com/GET_MANAGEMENT_TOKEN/`,
+      requestOptions
+    );
+    const data_token = await token_auth0.json();
 
-      var requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow",
-      };
+    var myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
+    myHeaders.append("Authorization", `Bearer ` + data_token);
 
-      const response = await fetch(
-        `https://dev-b6nqtl5cxl0okx61.us.auth0.com/api/v2/users/${user.sub}/roles`,
-        requestOptions
-      );
-      const data = await response.json();
+    var requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
 
-      if (Array.isArray(data)) {
-        setRoles(data);
+    const response = await fetch(
+      `https://dev-b6nqtl5cxl0okx61.us.auth0.com/api/v2/users/${user.sub}/roles`,
+      requestOptions
+    );
+    const data = await response.json();
 
-        let rolesStr = data.map((role) => role.name).join(", ");
-        if (rolesStr === "") {
-          rolesStr = "Client";
-        }
+    if (Array.isArray(data)) {
+      setRoles(data);
 
-        // Realizar la segunda solicitud fetch después de obtener los roles
-        await fetch("http://127.0.0.1:8000/ADD_USER/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user_id: user.sub,
-            user_name: user.name,
-            email: user.email,
-            role: rolesStr,
-          }),
-        });
-      } else {
-        console.error("Invalid data format:", data);
+      let rolesStr = data.map((role) => role.name).join(", ");
+      if (rolesStr === "") {
+        rolesStr = "Client";
       }
-  
+
+      // Realizar la segunda solicitud fetch después de obtener los roles
+      await fetch("https://backend-ecommerce-api-fcrd.onrender.com/ADD_USER/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_id: user.sub,
+          user_name: user.name,
+          email: user.email,
+          role: rolesStr,
+        }),
+      });
+    } else {
+      console.error("Invalid data format:", data);
+    }
   };
 
   return (
     <div className="header-container">
       {isAuthenticated ? (
         <>
+          <nav className="nav-before-header">
+            <div className="container-nav-before-header">
+              <div className="faEnvelope">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+              <span className="text-light span-nav-before-header">
+                info@company.com
+              </span>
+
+              <div className="faEnvelope">
+                <FontAwesomeIcon icon={faPhone} />
+              </div>
+              <span className="text-light span-nav-before-header">
+                01-8000-9955
+              </span>  
+            </div>
+          </nav>
           <header className="header">
             <img className="logo-img" src={iconImage} alt="Icon" />
             <nav className="nav">
               <ul className="ul-list">
                 <li className="header-li">
-                  <Link className="link-header" to="/">Home</Link>
+                  <Link className="link-header" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li className="header-li">
-                  <Link className="link-header" to="/shop">Shop</Link>
+                  <Link className="link-header" to="/shop">
+                    Shop
+                  </Link>
                 </li>
                 <li className="header-li">
-                  <Link className="link-header" to="/about">About us</Link>
+                  <Link className="link-header" to="/about">
+                    About us
+                  </Link>
                 </li>
                 <li className="header-li">
-                  <Link className="link-header" to="/inventory">Inventory</Link>
+                  <Link className="link-header" to="/inventory">
+                    Inventory
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -133,8 +161,8 @@ export const Header = () => {
               </div>
             </div>
             <div className="__header-logout-container">
-                <Profile/>
-                <LogoutButton />
+              <Profile />
+              <LogoutButton />
             </div>
           </header>
         </>
@@ -145,13 +173,19 @@ export const Header = () => {
             <nav className="nav">
               <ul className="ul-list">
                 <li className="header-li">
-                  <Link className="link-header" to="/">Home</Link>
+                  <Link className="link-header" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li className="header-li">
-                  <Link className="link-header" to="/shop">Shop</Link>
+                  <Link className="link-header" to="/shop">
+                    Shop
+                  </Link>
                 </li>
                 <li className="header-li">
-                  <Link className="link-header" to="/about">About us</Link>
+                  <Link className="link-header" to="/about">
+                    About us
+                  </Link>
                 </li>
               </ul>
             </nav>

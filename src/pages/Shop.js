@@ -24,7 +24,7 @@ export const Shop = () => {
   const get_products = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://127.0.0.1:8000/GET_PRODUCT/", {
+      const response = await fetch("https://backend-ecommerce-api-fcrd.onrender.com/GET_PRODUCT/", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,26 +47,10 @@ export const Shop = () => {
     get_products();
   }, []);
 
-  const addItem = () => {
-    // Agregar nueva imagen
-    const newImage = { shop_01 };
-    setImages([...Images, newImage]);
-  };
-
-  const clearImages = () => {
-    // Borrar todas las imagenes
-    setImages([]);
-  };
-
-  const clearLastItem = () => {
-    if (Images.length > 0) {
-      setImages(Images.slice(0, Images.length - 1));
-    }
-  };
 
   return (
     <main className="main-content-shop">
-      <h1>Our Products!</h1>
+      <h1 className="title-shop">Our Products!</h1>
       <div className="grid-container">
         {products.map((products, index) => (
           <div key={index} className="grid-item">
@@ -74,7 +58,7 @@ export const Shop = () => {
               <img src={products.image_1} alt={`shop_${index + 1}`} />
             </div>
             <div className="card-text-container">
-              <Link className="link-shop">{products.name_product}</Link>
+              <Link to="/buy-product" className="link-shop">{products.name_product}</Link>
               <div className="card-text-container-sizes">
                 <p>{products.brand}</p>
               </div>
@@ -404,9 +388,9 @@ export const Shop = () => {
               </div>
             </div>
           </div>
-        </div>       
-
-      </div> {/* End Grid-Container */}
+        </div>
+      </div>{" "}
+      {/* End Grid-Container */}
     </main>
   );
 };
