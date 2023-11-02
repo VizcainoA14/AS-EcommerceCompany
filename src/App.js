@@ -13,6 +13,7 @@ import About from "./pages/About";
 function App() {
   // Defining the state of the user
   const { isAuthenticated } = useAuth0();
+  let n;
 
   return (
     <div>
@@ -26,7 +27,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/shop" element={<Shop />} />
-              <Route path="/buy-product" element={<Buy/>}/>
+              <Route path="/buy-product/:id" element={<Buy/>}/>
             </Routes>
           </div>
           <Footer />
@@ -39,7 +40,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/shop" element={<Shop />} />
-              <Route path="/buy-product" element={<Buy/>} />
+              <Route path={`/buy-product/:id`} element={<Buy/>} />
             </Routes>
           </div>
           <Footer />

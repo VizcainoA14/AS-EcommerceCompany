@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./BuyProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import shop_02 from "../assets/img/shop_02.jpg";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useParams } from "react-router-dom";
+
+
 
 export const Buy = () => {
+  const { id } = useParams();
+  const get_token = useAuth0().getIdTokenClaims();
+  const [error, setError] = useState(null);
+  const { getIdTokenClaims } = useAuth0();
+  const [accessToken, setAccessToken] = useState("");
+
+
+  const showproduct = async (id) => {
+    try {
+      let accessToken = await get_token;
+      get_token.then((result) => {
+        setAccessToken(result.__raw);
+      });
+      const token = accessToken.__raw;
+      await fetch(`https://backend-ecommerce-api-fcrd.onrender.com/GET_PRODUCT/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+  // Resto de tu código...
+  
+  useEffect(() => {
+    console.log(id);
+    showproduct(id);
+  }, []);
+  
+
+
+
+
+
+
+
+  
   return (
     <div className="main-content-buy-product">
       <section className="section-1-buy-product">
