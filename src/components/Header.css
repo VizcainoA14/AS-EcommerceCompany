@@ -1,9 +1,9 @@
 .header {
+  display: flex;  
+  background: #fff;
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fff;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 0.625;
 }
@@ -104,7 +104,7 @@
   padding: 0 1.5rem;
   background: #212529;
   display: flex;
-  width: 100%;
+  width: auto;
   height: 2.5rem;
 }
 
@@ -134,4 +134,8 @@
   color: var(--text-light);
   font-size: 0.9em;
   margin-right: 0.5rem;
+}
+
+.header-container { 
+  width: 100%;
 }

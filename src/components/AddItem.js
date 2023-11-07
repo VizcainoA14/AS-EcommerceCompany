@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./Additem.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import Inventory from "../../pages/Inventory";
+import { Inventory } from "../pages/Inventory";
 
 
 Modal.setAppElement("#root");
@@ -11,7 +11,6 @@ export const PopupForm = () => {
   const [isOpen, setIsOpen] = useState(false);
   const get_token = useAuth0().getIdTokenClaims();
   const [accessToken, setAccessToken] = useState("");
-
   const [name_product, setName_product] = useState("");
   const [price, setPrice] = useState(0);
   const [brand, setBrand] = useState("");

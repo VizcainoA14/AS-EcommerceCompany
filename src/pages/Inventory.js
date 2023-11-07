@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Inventory.css";
 import { useFetcher } from "react-router-dom";
-import Header from "../components/Header";
 import { useAuth0 } from "@auth0/auth0-react";
-import PopupForm from "../components/Additem/AddItem";
+import PopupForm from "../components/AddItem";
 
 export const Inventory = () => {
   const [products, setProducts] = useState([]);

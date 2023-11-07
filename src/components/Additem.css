@@ -1,6 +1,6 @@
 /* AddItem.css */
 .popup-content {
-  background-color: white;
+  background-color: #fff;
   padding: 2rem;
   width: 40rem;
   height: 30rem;
@@ -18,6 +18,7 @@
   justify-content: center;
   margin: 0 !important;
 }
+
 
 .faTimes {
   cursor: pointer;
@@ -83,7 +84,7 @@
   align-items: center;
   width: 13.75rem; 
   height: 3.6875rem; 
-  color: #000;
+  color: #fff;
   background: #99fbae;
   border-radius: 3.125rem; 
   font-size: 1.1875rem; 

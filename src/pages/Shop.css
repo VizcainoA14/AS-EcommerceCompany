@@ -6,11 +6,11 @@
   margin: 0 2rem;
 }
 
-.title-shop { 
+.title-shop {
   display: flex;
   justify-content: center;
   margin: 0;
-  font-size: 3.125rem;
+  font-size: 3.125rem;  
   font-weight: 500;
   color: #000;
 }
@@ -26,17 +26,58 @@
   grid-auto-flow: dense;
   gap: 1.5rem;
   padding: 2rem;
+  position: relative;
 }
 
 .grid-item {
   background: #fff;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border: 0.12rem solid rgba(0, 0, 0, 0.125);
+  height: 100%;
+  position: relative;
 }
 
 .grid-item:hover {
-  transition: all 0.5s ease;
-  transform: scale(1.1); /* Animation images*/
+  transition: all 0.25s ease-in-out;
+  transform: scale(1.1);
+}
+
+.links-shop-watch-product {
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.links-shop-watch-product:hover {   
+  transition: all .25s ease-in-out;
+  opacity: 1;
+}
+
+.link-shop-watch-product {
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  background: #1065cd;
+  border: none;
+  border-radius: 10%;
+  outline: #1065cd;
+  position: relative;
+}
+
+.icon-link-shop { 
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .categories {
@@ -45,16 +86,16 @@
 }
 
 .card-image-container {
-  width: 100%;
-  height: 250px; /* Ajusta la altura según sea necesario */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .card-image-container > img {
-  width: 100%;
-  height: auto;
+  min-width: 10rem;
+  min-height: 15rem;
 }
 
 .card-text-container {
@@ -70,6 +111,7 @@
   max-width: -moz-fit-content;
   max-width: fit-content;
   text-decoration: none;
+  color: #1065cd;
 }
 
 .star {
@@ -111,6 +153,11 @@
 
 .price-container-shop > p {
   margin: 0;
+}
+
+.brand-text-shop { 
+  margin: 0;
+  width: max-content;
 }
 
 /* I wanto to adapt the design to an iphone 11 resolution */

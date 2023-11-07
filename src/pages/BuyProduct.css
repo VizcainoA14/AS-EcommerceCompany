@@ -8,11 +8,6 @@
   height: auto;
 }
 
-.section-2-buy-product {
-  height: 50rem;
-  background: rgb(40, 41, 40);
-}
-
 .section-buy-product-div {
   display: flex;
   flex-direction: row;
@@ -20,26 +15,21 @@
 }
 
 .section-buy-product-div-specification-content-1 {
-  background: #eaea;
+  background: #7db2f3;
   width: 25rem;
-  height: 52.423125rem;
+  height: 32.423125rem;
   padding: 1rem;
   margin: 3rem 0 3rem 0;
 }
 
-.section-buy-product-div-specification-content-1 > h2 {
-  text-align: center;
-  margin: 0 0 1rem 0;
-}
 
 .buy-product-main-img-container {
+  margin-top: 1em;
   width: auto;
-  height: auto;
 }
 
 .buy-product-main-img-container > img {
   width: 100%;
-  height: 100%;
   border: 0.11rem solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
@@ -47,41 +37,39 @@
 .section-buy-product-div-specification-content-2 {
   margin: 3rem 0 3rem 0;
   padding: 1rem;
-  background-color: #eaeaa7;
+  background-color: #f6fcff;
   display: flex;
   flex-direction: column;
   width: 40.0625rem;
-  height: 52.423125rem;
+  height: 32.423125rem;
+  gap: 1.2rem;
 }
 
-.section-buy-product-div-specification-content-2 > .buy-product-name {
+.buy-product-name { 
   font-size: 2rem;
   margin: 0;
-  margin-bottom: 0.7rem;
 }
+
 
 .section-buy-product-div-specification-content-2 > .buy-product-price {
   font-size: 2rem;
   margin: 0;
-  margin-bottom: 0.7rem;
 }
 
 .paragraph-buy-product-content-2 {
   line-height: 1.6rem;
-  margin-top: 0;
+  margin: 0;
 }
 
 .span-buy-product-content-2 {
-  margin-bottom: 0.7rem;
 }
 
 .buy-product-stars {
   display: flex;
   flex-direction: row;
-  margin-bottom: 0.7rem;
 }
 
-.buy-product-stars > :nth-child(-n + 3) {
+.buy-product-stars > :nth-child(-n + 4) {
   color: #ff0;
 }
 
@@ -94,14 +82,21 @@
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
   border: none;
-  background-color: #59ab6e;
-  border-color: #59ab6c;
+  background-color: #7db2f3;
+  border-color: #7db2f3;
   width: 18.15625rem;
   color: #fff;
   margin-right: 1rem;
 }
 
-.from-buy-product {
+.form-buy-product {
   display: flex;
   flex-direction: row;
 }
+
+.section-2-buy-product {
+  height: 20rem;
+  background: rgb(40, 41, 40);
+}
+
+
