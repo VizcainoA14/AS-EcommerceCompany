@@ -11,6 +11,8 @@ import {
   faSearch,
   faEnvelope,
   faPhone,
+  faShoppingCart,
+  faShop
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
@@ -159,6 +161,9 @@ export const Header = () => {
               <div className="search-button">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
+              <Link className="link-header" to="/shopping-cart">
+                <FontAwesomeIcon icon={faShoppingCart}/>
+              </Link>
             </div>
             <div className="__header-logout-container">
               <Profile />

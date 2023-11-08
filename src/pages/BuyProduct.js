@@ -36,6 +36,12 @@ export const Buy = () => {
     get_product(id);
   }, []);
 
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
   return (
     <div className="main-content-buy-product">
       <section className="section-1-buy-product">
@@ -80,17 +86,25 @@ export const Buy = () => {
               <p className="paragraph-buy-product-content-2">
                 {products.description}
               </p>
-              <span className="bold-text span-buy-product-content-2 ">
-                Available (Stock): {products.stock}
+              
+              <span htmlFor="quantity" className="bold-text span-buy-product-content-2 ">
+                  Quantity: 
               </span>
-                <form className="form-buy-product">
-                  <button className="buy-product-submit-button" type="submit">
-                    Buy
-                  </button>
-                  <button className="buy-product-submit-button" type="submit">
-                    Add To Cart
-                  </button>
-                </form>
+              <select id="quantity" value={quantity} onChange={handleQuantityChange}>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+              </select>
+              
+              <form className="form-buy-product">
+                <button className="buy-product-submit-button" type="submit">
+                  Buy
+                </button>
+                <button className="buy-product-submit-button" type="submit">
+                  Add To Cart
+                </button>
+              </form>
             </div>
           </div>
         ))}

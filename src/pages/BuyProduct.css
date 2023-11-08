@@ -15,11 +15,12 @@
 }
 
 .section-buy-product-div-specification-content-1 {
-  background: #7db2f3;
+  background: #fff;
   width: 25rem;
   height: 32.423125rem;
-  padding: 1rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   margin: 3rem 0 3rem 0;
+  outline: .09em solid #eaeaea;
 }
 
 
@@ -30,19 +31,19 @@
 
 .buy-product-main-img-container > img {
   width: 100%;
-  border: 0.11rem solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
 
 .section-buy-product-div-specification-content-2 {
   margin: 3rem 0 3rem 0;
-  padding: 1rem;
-  background-color: #f6fcff;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   width: 40.0625rem;
   height: 32.423125rem;
   gap: 1.2rem;
+  outline: .09em solid #eaeaea;
 }
 
 .buy-product-name { 

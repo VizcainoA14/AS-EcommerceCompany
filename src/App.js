@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Home from "./pages/Home";
 import Inventory from "./pages/Inventory";
 import Shop from "./pages/Shop";
+import ShoppingCart from "./components/ShoppingCart";
 import Buy from "./pages/BuyProduct";
 import "./App.css";
 // Cambia la importación de Principal
@@ -13,7 +14,7 @@ import About from "./pages/About";
 function App() {
   // Defining the state of the user
   const { isAuthenticated } = useAuth0();
-  let n;
+
 
   return (
     <div>
@@ -28,6 +29,7 @@ function App() {
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/buy-product/:id" element={<Buy/>}/>
+              <Route path="/shopping-cart" element={<ShoppingCart />}/>
             </Routes>
           </div>
           <Footer />
