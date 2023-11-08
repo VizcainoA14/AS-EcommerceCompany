@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams } from "react-router-dom";
+import { ShoppingCart } from "../components/ShoppingCart";
 
 export const Buy = () => {
   const { id } = useParams();
   const [error, setError] = useState(null);
-  const [accessToken, setAccessToken] = useState("");
   const [products, setProducts] = useState([]);
+  const { data, setData } = ShoppingCart();
+  const [numberStock, setnumberStock] = useState(1)
+  const [quantity, setQuantity] = useState(1);
 
   const get_product = async (id) => {
     try {
@@ -27,14 +30,41 @@ export const Buy = () => {
       }
       const json = await response.json();
       setProducts(json);
+      setnumberStock(json[0].stock);
+
     } catch (error) {
       setError(error);
     }
   };
 
+
+  const addToCart = (product, quantity) => {
+    const quantityINT = parseInt(quantity, 10);
+    setData({
+      ...data,
+      list_product: [...data.list_product, product],
+      list_amount: [...data.list_amount, quantityINT]
+    });
+  };
+  console.log(data);
+
+  const limpiarDatos = () => {
+    setData({
+      list_product: [],
+      list_amount: []
+    }); // Reinicia el estado, eliminando los datos locales
+  };
+
   useEffect(() => {
     get_product(id);
   }, []);
+
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+  const numberOptions = Array.from({ length: numberStock }, (_, index) => index + 1);
+
 
   return (
     <div className="main-content-buy-product">
@@ -80,17 +110,26 @@ export const Buy = () => {
               <p className="paragraph-buy-product-content-2">
                 {products.description}
               </p>
-              <span className="bold-text span-buy-product-content-2 ">
-                Available (Stock): {products.stock}
+              <span htmlFor="quantity" className="bold-text span-buy-product-content-2 ">
+                  Quantity:
               </span>
-                <form className="form-buy-product">
+              
+              <select id="quantity" value={quantity} onChange={handleQuantityChange}>
+                {numberOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                  ))}
+                </select>
+                <div className="form-buy-product">
                   <button className="buy-product-submit-button" type="submit">
                     Buy
                   </button>
-                  <button className="buy-product-submit-button" type="submit">
+                  <button className="buy-product-submit-button" onClick={() => addToCart(products.id_product, quantity)} >
                     Add To Cart
-                  </button>
-                </form>
+                </button>
+
+                </div>
             </div>
           </div>
         ))}

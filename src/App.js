@@ -6,6 +6,7 @@ import Buy from "./pages/BuyProduct";
 import "./App.css";
 // Cambia la importación de Principal
 import { Routes, Route } from "react-router-dom";
+import { DataProvider } from "./components/ShoppingCart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./pages/About";
@@ -13,12 +14,11 @@ import About from "./pages/About";
 function App() {
   // Defining the state of the user
   const { isAuthenticated } = useAuth0();
-  let n;
 
   return (
     <div>
       {isAuthenticated ? (
-        <>
+        <DataProvider>
           <Header />
           {/* Las rutas muestran el contenido principal */}
           <div className="main-content">
@@ -31,9 +31,9 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </>
+        </DataProvider>
       ) : (
-        <>
+        <DataProvider>
           <Header />
           <div className="main-content">
             <Routes>
@@ -44,7 +44,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </>
+        </DataProvider>
       )}
     </div>
   );
