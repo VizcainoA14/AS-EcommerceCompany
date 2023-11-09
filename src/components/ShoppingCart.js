@@ -5,7 +5,7 @@ const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     const storedData = localStorage.getItem("data");
-    return storedData ? JSON.parse(storedData) : { list_product: [], list_amount: [] }; // Inicializa variable1 como un array vacío
+    return storedData ? JSON.parse(storedData) : { list_products: [], list_amount: [] }; // Inicializa variable1 como un array vacío
   });
 
   useEffect(() => {

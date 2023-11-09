@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import iconImage from "../assets/img/iconImage.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Header.css";
-import LoginButton from "./Login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -13,14 +12,17 @@ import {
   faShop,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { ShoppingCart } from "../components/ShoppingCart";
 
 export const Header = () => {
   const { logout } = useAuth0();
   const { isAuthenticated, user, loginWithRedirect } = useAuth0();
   const [roles, setRoles] = useState([]);
+  const [userRol, setuserRol] = useState("");
   const [fetchData, setFetchData] = useState(false);
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
+  const { data, setData } = ShoppingCart();
 
   useEffect(() => {
     if (isAuthenticated && !fetchData) {
@@ -86,6 +88,8 @@ export const Header = () => {
         rolesStr = "Client";
       }
 
+      setuserRol(rolesStr);
+
       // Realizar la segunda solicitud fetch después de obtener los roles
       await fetch("https://backend-ecommerce-api-fcrd.onrender.com/ADD_USER/", {
         method: "POST",
@@ -103,10 +107,18 @@ export const Header = () => {
       console.error("Invalid data format:", data);
     }
   };
+  
+  const limpiarDatos = () => {
+    setData({
+      list_products: [],
+      list_amount: []
+    }); // Reinicia el estado, eliminando los datos locales
+  };
 
   return (
     <div className="header-container">
       {isAuthenticated ? (
+        userRol === "Admin" ? (
         <>
           <nav className="nav-before-header">
             <div className="container-nav-before-header">
@@ -168,13 +180,85 @@ export const Header = () => {
               <img className="profile-img" src={user.picture} alt={user.name} />
               <button
                 className="logout-button"
-                onClick={() => logout({ returnTo: window.location.origin })}
+                onClick={() => {
+                  limpiarDatos();
+                  logout({ returnTo: window.location.origin })
+                }} 
               >
                 Logout
               </button>
             </div>
           </header>
         </>
+        ) : (
+          <>
+          <nav className="nav-before-header">
+            <div className="container-nav-before-header">
+              <div className="faEnvelope">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+              <span className="text-light span-nav-before-header">
+                info@company.com
+              </span>
+
+              <div className="faEnvelope">
+                <FontAwesomeIcon icon={faPhone} />
+              </div>
+              <span className="text-light span-nav-before-header">
+                01-8000-9955
+              </span>
+            </div>
+          </nav>
+          <header className="header">
+            <img className="logo-img" src={iconImage} alt="Icon" />
+            <nav className="nav">
+              <ul className="ul-list">
+                <li className="header-li">
+                  <Link className="link-header" to="/">
+                    Home
+                  </Link>
+                </li>
+                <li className="header-li">
+                  <Link className="link-header" to="/shop">
+                    Shop
+                  </Link>
+                </li>
+                <li className="header-li">
+                  <Link className="link-header" to="/about">
+                    About us
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+            <div className="input-search-container">
+              <input
+                className="input-search"
+                type="text"
+                placeholder="Search"
+              />
+              <div className="search-button">
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+            </div>
+            <div className="__header-logout-container">
+              <Link className="faShoppingCart" to="/shopping-cart">
+                <FontAwesomeIcon icon={faShoppingCart} />
+              </Link>
+              <img className="profile-img" src={user.picture} alt={user.name} />
+              <button
+                className="logout-button"
+                onClick={() => {
+                  limpiarDatos();
+                  logout({ returnTo: window.location.origin })
+                }} 
+              >
+                Logout
+              </button>
+            </div>
+          </header>
+            </>
+            
+          )
       ) : (
         <>
           <header className="header">
@@ -211,7 +295,10 @@ export const Header = () => {
             <div className="login-header-container">
               <button
                 className="login-button"
-                onClick={() => loginWithRedirect()}
+                  onClick={() => {
+                    limpiarDatos();
+                    loginWithRedirect()
+                  }}
               >
                 Log In
               </button>

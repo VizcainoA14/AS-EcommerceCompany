@@ -7,7 +7,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 export const ShoppingCartFront = () => {
   const [Images, setImages] = useState([]);
   const [products, setProducts] = useState([]);
- const [amount, setAmount] = useState([]);
+  const [amount, setAmount] = useState([]);
+  const [total_buy, setTotal_buy] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { data, setData } = ShoppingCart();
@@ -39,6 +40,7 @@ export const ShoppingCartFront = () => {
       const json = await response.json();
       setProducts(json.list_product);
       setAmount(json.list_amount)
+      setTotal_buy(json.total_purchase)
     } catch (error) {
       setError(error);
     } finally {
@@ -86,7 +88,7 @@ export const ShoppingCartFront = () => {
         <h1 className="title-aside-shopping-front text-align-center">
           SOY EL ASIDE
         </h1>
-        <h2 className="text-align-start">Total Buy:</h2>
+        <h2 className="text-align-start">Total Buy:{total_buy}</h2>
       </aside>
     </div>
   );

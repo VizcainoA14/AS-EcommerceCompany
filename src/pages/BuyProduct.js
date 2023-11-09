@@ -43,7 +43,7 @@ export const Buy = () => {
     const quantityINT = parseInt(quantity, 10);
     setData({
       ...data,
-      list_product: [...data.list_product, product],
+      list_products: [...data.list_products, product],
       list_amount: [...data.list_amount, quantityINT]
     });
   };
@@ -58,6 +58,7 @@ export const Buy = () => {
 
   useEffect(() => {
     get_product(id);
+
   }, []);
 
 
