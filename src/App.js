@@ -2,24 +2,24 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Home from "./pages/Home";
 import Inventory from "./pages/Inventory";
 import Shop from "./pages/Shop";
-import ShoppingCart from "./components/ShoppingCart";
 import Buy from "./pages/BuyProduct";
 import "./App.css";
 // Cambia la importación de Principal
 import { Routes, Route } from "react-router-dom";
+import { DataProvider } from "./components/ShoppingCart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import About from "./pages/About";
+import ShoppingCartFront from "./pages/ShoppingCartPage";
 
 function App() {
   // Defining the state of the user
   const { isAuthenticated } = useAuth0();
 
-
   return (
     <div>
       {isAuthenticated ? (
-        <>
+        <DataProvider>
           <Header />
           {/* Las rutas muestran el contenido principal */}
           <div className="main-content">
@@ -29,13 +29,13 @@ function App() {
               <Route path="/inventory" element={<Inventory />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/buy-product/:id" element={<Buy/>}/>
-              <Route path="/shopping-cart" element={<ShoppingCart />}/>
+              <Route path="/shopping-cart" element={<ShoppingCartFront />}/>
             </Routes>
           </div>
           <Footer />
-        </>
+        </DataProvider>
       ) : (
-        <>
+        <DataProvider>
           <Header />
           <div className="main-content">
             <Routes>
@@ -46,7 +46,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </>
+        </DataProvider>
       )}
     </div>
   );

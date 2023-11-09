@@ -28,7 +28,6 @@ export const Shop = () => {
       }
       const json = await response.json();
       setProducts(json);
-      console.log(products);
     } catch (error) {
       setError(error);
     } finally {
