@@ -53,11 +53,11 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 }
 
 .links-shop-watch-product:hover {   
-  transition: all .25s ease-in-out;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
   opacity: 1;
 }
 
@@ -70,6 +70,11 @@
   border-radius: 10%;
   outline: #1065cd;
   position: relative;
+  cursor: pointer;
+}
+
+.link-shop-watch-product:hover {
+  transform: scale(1.1);  
 }
 
 .icon-link-shop { 

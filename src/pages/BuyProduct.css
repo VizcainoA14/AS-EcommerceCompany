@@ -17,10 +17,11 @@
 .section-buy-product-div-specification-content-1 {
   background: #fff;
   width: 25rem;
-  height: 32.423125rem;
+  min-height: 32.423125rem;
   padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   margin: 3rem 0 3rem 0;
   outline: .09em solid #eaeaea;
+  height: auto;
 }
 
 
@@ -41,9 +42,10 @@
   display: flex;
   flex-direction: column;
   width: 40.0625rem;
-  height: 32.423125rem;
+  min-height: 32.423125rem;
   gap: 1.2rem;
   outline: .09em solid #eaeaea;
+  height: auto;
 }
 
 .buy-product-name { 

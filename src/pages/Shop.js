@@ -39,11 +39,8 @@ export const Shop = () => {
     get_products();
   }, []);
 
-
- 
   return (
     <main className="main-content-shop">
-      <h1 className="title-shop">Our Products!</h1>
       <div className="grid-container">
         {products.map((products, index) => (
           <div key={index} className="grid-item">
@@ -55,7 +52,7 @@ export const Shop = () => {
                 <Link to={`/buy-product/${products.id_product}`} className="link-shop-watch-product">
                 <FontAwesomeIcon className="icon-link-shop" icon={faEye} />
                 </Link>
-                <Link to={`/buy-product/${products.id_product}`} className="link-shop-watch-product">
+                <Link to="/shopping-cart" className="link-shop-watch-product">
                 <FontAwesomeIcon className="icon-link-shop" icon={faShoppingCart} />
                 </Link>
               </div>

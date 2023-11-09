@@ -4,20 +4,19 @@ import iconImage from "../assets/img/iconImage.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Header.css";
 import LoginButton from "./Login";
-import LogoutButton from "./Logout";
-import Profile from "./Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
   faEnvelope,
   faPhone,
   faShoppingCart,
-  faShop
+  faShop,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 export const Header = () => {
-  const { isAuthenticated, user } = useAuth0();
+  const { logout } = useAuth0();
+  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
   const [roles, setRoles] = useState([]);
   const [fetchData, setFetchData] = useState(false);
   const [accessToken, setAccessToken] = useState("");
@@ -123,7 +122,7 @@ export const Header = () => {
               </div>
               <span className="text-light span-nav-before-header">
                 01-8000-9955
-              </span>  
+              </span>
             </div>
           </nav>
           <header className="header">
@@ -161,13 +160,18 @@ export const Header = () => {
               <div className="search-button">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
-              <Link className="link-header" to="/shopping-cart">
-                <FontAwesomeIcon icon={faShoppingCart}/>
-              </Link>
             </div>
             <div className="__header-logout-container">
-              <Profile />
-              <LogoutButton />
+              <Link className="faShoppingCart" to="/shopping-cart">
+                <FontAwesomeIcon icon={faShoppingCart} />
+              </Link>
+              <img className="profile-img" src={user.picture} alt={user.name} />
+              <button
+                className="logout-button"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Logout
+              </button>
             </div>
           </header>
         </>
@@ -205,7 +209,12 @@ export const Header = () => {
               </div>
             </div>
             <div className="login-header-container">
-              <LoginButton />
+              <button
+                className="login-button"
+                onClick={() => loginWithRedirect()}
+              >
+                Log In
+              </button>
             </div>
           </header>
         </>

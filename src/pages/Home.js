@@ -1,7 +1,6 @@
 import "./Home.css";
 import Propaganda from "../assets/img/Propaganda.png";
 
-
 export const Home = () => {
   return (
     <div className="home-container">
@@ -23,7 +22,11 @@ export const Home = () => {
           <p className="dto">40% DTO</p>
           <p className="selected-products">Selected products</p>
         </div>
-        <img className="publicity-img" src={Propaganda} alt="Publicidad"></img>
+          <img
+            className="publicity-img"
+            src={Propaganda}
+            alt="Publicidad"
+          ></img>
       </div>
       <button className="shop-now">SHOP NOW</button>
       <section className="section">

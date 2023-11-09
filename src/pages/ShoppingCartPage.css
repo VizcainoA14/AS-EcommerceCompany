@@ -1,0 +1,81 @@
+.shopping-cart-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    background: #fbb; 
+    width: 100%;
+    min-height: 110vh;
+    position: relative;
+}
+
+.shopping-cart-main-content { 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: column;
+    min-height: 110vh;
+    height: auto;
+    background: #fff;
+    padding: 1.5rem;
+}
+
+.shopping-cart-main-content > span { 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.shopping-cart-item {
+    display: flex; 
+    flex-direction: row;
+    background-color: #f8f8f8;
+    width: 100%;
+    height: auto;
+    margin-right: 1rem;
+    border: .1rem solid #eaeaea;
+}
+
+.img-shopping-front-item { 
+    max-width: 10rem;
+    height: auto;
+    object-fit: cover;
+}
+
+.img-shopping-front-item-container {
+    padding: 1rem;
+    display: inline-block;
+ }
+
+.description-container-shoppping-front {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description-container-shoppping-front > :first-child {
+    font-size: 1.5rem;
+}
+
+.description-container-shoppping-front > :nth-child(-n + 4) {
+    font-weight: light;
+}
+
+
+
+.shopping-cart-aside {
+    background: #48e;
+    border-left: 0.0625rem solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-aside-shopping-front { 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212521;
+    margin: 0;
+}
+
+
+
+

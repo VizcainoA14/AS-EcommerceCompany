@@ -18,7 +18,7 @@ body {
 }
 
 :root {
-  --login-signup-button: #1065cd /**/;
+  --login-signup-button: #48e /**/;
   --bs-green: #198754;
   --bs--success: #20c997;
   --about-icon-color: #1065cd;
@@ -33,4 +33,12 @@ body {
 .main-content { 
   min-height: 110vh;
   flex: 1;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-start { 
+  text-align: start;
 }

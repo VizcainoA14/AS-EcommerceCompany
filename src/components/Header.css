@@ -1,11 +1,12 @@
 .header {
-  display: flex;  
+  display: flex;
   background: #fff;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   padding: 0.625;
+  border-bottom: 0.0625rem solid #eaeaea;
 }
 
 .logo-img {
@@ -23,10 +24,6 @@
   width: auto;
 }
 
-.header-li {
-  margin-right: 0 1.25rem 0 0;
-}
-
 .link-header {
   font-family: "Poppins", sans-serif;
   font-size: 1.125rem;
@@ -42,23 +39,30 @@
 .ul-list {
   margin: 0;
   display: flex;
-  gap: 1.7rem;
+  gap: 1.3rem;
   padding: 0;
   list-style-type: none;
   height: min-content;
 }
 
-.header-login-signup-button {
-  font-size: 1.25rem;
-  padding: .7rem 1.7rem;
-  border-radius: 1.4rem;
-  border: none;
-  background: #1065cd;
-  border-color: var(--login-signup-button);
-  width: max-content;
-  color: #fff;
-  font-weight: 600;
+.logout-button {
+  font-size: 1.125rem;
+  font-weight: 500;
   cursor: pointer;
+  background: var(--login-signup-button);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: 0.125rem solid var(--login-signup-button);
+  border-radius: 0.4rem;
+  transition: transform 0.2s ease;
+}
+
+.logout-button:hover {
+  transform: scale(1.1);
+}
+
+.logout-button:active {
+  transform: translateY(0.2rem);
 }
 
 .input-search-container {
@@ -90,7 +94,21 @@
   margin-right: 2rem;
 }
 
+.login-button {
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--login-signup-button);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: 0.125rem solid var(--login-signup-button);
+  border-radius: 0.4rem;
+  transition: transform 0.2s ease;
+}
 
+.login-button:hover{
+  transform: scale(1.1);
+}
 
 .__header-logout-container {
   display: flex;
@@ -98,6 +116,7 @@
   align-items: center;
   justify-content: flex-end;
   margin-right: 1.5rem;
+  gap: 1.26rem;
 }
 
 .nav-before-header {
@@ -136,6 +155,26 @@
   margin-right: 0.5rem;
 }
 
-.header-container { 
+.faShoppingCart {
+  color: #212529;
+  font-size: 2rem;
+}
+
+.faShoppingCart:hover {
+  transform: scale(1.1);
+}
+
+.header-container {
   width: 100%;
+}
+
+.profile-img {
+  width: 5rem;
+  min-height: 5rem;
+  border-radius: 10%;
+  transition: transform 0.2s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
 }

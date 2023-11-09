@@ -38,6 +38,7 @@ export const Buy = () => {
   };
 
 
+  
   const addToCart = (product, quantity) => {
     const quantityINT = parseInt(quantity, 10);
     setData({
@@ -50,7 +51,7 @@ export const Buy = () => {
 
   const limpiarDatos = () => {
     setData({
-      list_product: [],
+      list_products: [],
       list_amount: []
     }); // Reinicia el estado, eliminando los datos locales
   };
@@ -65,12 +66,6 @@ export const Buy = () => {
   };
   const numberOptions = Array.from({ length: numberStock }, (_, index) => index + 1);
 
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
-  };
 
   return (
     <div className="main-content-buy-product">
