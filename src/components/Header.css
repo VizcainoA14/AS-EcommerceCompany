@@ -110,6 +110,10 @@
   transform: scale(1.1);
 }
 
+.login-button:active { 
+  transform: scale(0.9);
+}
+
 .__header-logout-container {
   display: flex;
   flex: 1;

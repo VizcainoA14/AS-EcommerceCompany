@@ -21,7 +21,7 @@ export const ShoppingCartFront = () => {
       get_token.then((result) => {
         setAccessToken(result.__raw);
       });
-        const token = accessToken.__raw;
+      const token = accessToken.__raw;
       setLoading(true);
       const response = await fetch(
         "https://backend-ecommerce-api-fcrd.onrender.com/SEE-SHOOPING-CART/",
@@ -39,8 +39,8 @@ export const ShoppingCartFront = () => {
       }
       const json = await response.json();
       setProducts(json.list_product);
-      setAmount(json.list_amount)
-      setTotal_buy(json.total_purchase)
+      setAmount(json.list_amount);
+      setTotal_buy(json.total_purchase);
     } catch (error) {
       setError(error);
     } finally {
@@ -52,11 +52,25 @@ export const ShoppingCartFront = () => {
     GetShoppingCartProducts();
   }, []);
 
+    if (loading)
+     return (<div class="lds-roller">
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+   </div>); 
+   
   return (
     <div className="shopping-cart-content">
       <main className="shopping-cart-main-content">
         {/* Main content*/}
-        <span className="text-align-center">SOY EL MAIN</span>
+        <h2 className="text-align-center title-shopping-cart-front">
+          My Products
+        </h2>
         {products.map((products, index) => (
           <div key={index} className="shopping-cart-item">
             <div className="img-shopping-front-item-container">
@@ -76,7 +90,7 @@ export const ShoppingCartFront = () => {
               </span>
               <span>
                 <b>Quantity: </b>
-                    {amount[index]}
+                {amount[index]}
               </span>
             </div>
           </div>
@@ -86,9 +100,12 @@ export const ShoppingCartFront = () => {
         {" "}
         {/*Secondary Content */}
         <h1 className="title-aside-shopping-front text-align-center">
-          SOY EL ASIDE
+          Total Buy
         </h1>
-        <h2 className="text-align-start">Total Buy:{total_buy}</h2>
+        <div className="to-pay-shopping-cart-front">
+          <h2 className="text-align-start">To Pay... </h2>
+          <span>${total_buy}</span>
+        </div>
       </aside>
     </div>
   );

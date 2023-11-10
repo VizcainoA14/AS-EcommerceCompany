@@ -18,10 +18,12 @@
     padding: 1.5rem;
 }
 
-.shopping-cart-main-content > span { 
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #000;
+.shopping-cart-main-content > h2 { 
+    font-size: 2rem;
+    color: #212521;
+    margin: 0;
+    font-weight: 400;
+
 }
 
 .shopping-cart-item {
@@ -63,19 +65,38 @@
 
 
 .shopping-cart-aside {
-    background: #48e;
-    border-left: 0.0625rem solid #eaeaea;
+    background: rgb(244, 244, 245);
+    border-left: 0.08rem solid #eaeaea;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
+
+.to-pay-shopping-cart-front { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.to-pay-shopping-cart-front > h2 { 
+    margin: 0;
+    margin-top: 2rem;
+    width: max-content;
+    font-weight: 300;
+}
+
+.to-pay-shopping-cart-front > span {
+    width: max-content;
+    align-self: flex-end;
+    font-size: 1.2rem;
+}
+
 
 .title-aside-shopping-front { 
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 2rem;
     color: #212521;
     margin: 0;
+    font-weight: 400;
 }
-
-
 
 

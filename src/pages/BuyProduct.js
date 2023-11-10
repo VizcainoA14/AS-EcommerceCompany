@@ -112,17 +112,17 @@ export const Buy = () => {
               <p className="paragraph-buy-product-content-2">
                 {products.description}
               </p>
-              <span htmlFor="quantity" className="bold-text span-buy-product-content-2 ">
+              <div className="Quantity-buy-product-content"><span htmlFor="quantity" className="bold-text span-buy-product-content-2 ">
                   Quantity:
               </span>
               
-              <select id="quantity" value={quantity} onChange={handleQuantityChange}>
+              <select className="select-quantity-buy-product" id="quantity" value={quantity} onChange={handleQuantityChange}>
                 {numberOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>
                   ))}
-                </select>
+                </select></div>
                 <div className="form-buy-product">
                   <button className="buy-product-submit-button" type="submit">
                     Buy

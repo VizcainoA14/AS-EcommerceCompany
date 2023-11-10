@@ -15,12 +15,15 @@ export const Inventory = () => {
   const get_products = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://backend-ecommerce-api-fcrd.onrender.com/GET_PRODUCT/", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://backend-ecommerce-api-fcrd.onrender.com/GET_PRODUCT/",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Network response was not OK");
       }
@@ -32,30 +35,32 @@ export const Inventory = () => {
       setLoading(false);
     }
   };
-  
-  
-  
+
   const removeproducts = async (id) => {
     try {
       let accessToken = await get_token;
       get_token.then((result) => {
         setAccessToken(result.__raw);
       });
-  
+
       const token = accessToken.__raw;
-      await fetch("https://backend-ecommerce-api-fcrd.onrender.com/DELETE_PRODUCT/?id_product=" + id, {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
-      });
+      await fetch(
+        "https://backend-ecommerce-api-fcrd.onrender.com/DELETE_PRODUCT/?id_product=" +
+          id,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       get_products();
     } catch (error) {
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,15 +74,25 @@ export const Inventory = () => {
 
     fetchData();
   }, []);
-  
-  if (loading) return "Loading...";
-  
+
+  if (loading)
+    return (
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
 
   return (
     <main>
-      <h1 className="title-inventory">INVENTORY</h1>
       <div className="grid-container-inventory">
-        <PopupForm/>
+        <PopupForm />
         <table className="table">
           <thead>
             <tr className="table-header">

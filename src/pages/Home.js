@@ -1,5 +1,6 @@
 import "./Home.css";
 import Propaganda from "../assets/img/Propaganda.png";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -22,20 +23,26 @@ export const Home = () => {
           <p className="dto">40% DTO</p>
           <p className="selected-products">Selected products</p>
         </div>
-          <img
-            className="publicity-img"
-            src={Propaganda}
-            alt="Publicidad"
-          ></img>
+        <img className="publicity-img" src={Propaganda} alt="Publicidad"></img>
       </div>
-      <button className="shop-now">SHOP NOW</button>
+      <Link to="/shop" className="shop-now">
+        SHOP NOW
+      </Link>
       <section className="section">
         <div className="show-by-category">
           <h2 className="shop-by-category">Show By Category</h2>
         </div>
-        <button className="product-category">Product Category</button>
-        <button className="product-category">Product Category</button>
-        <button className="product-category">Product Category</button>
+        <div className="product-category-home-container">
+          <Link to="/shop" className="product-category-home">
+            Product Category
+          </Link>
+          <Link to="/shop" className="product-category-home">
+            Product Category
+          </Link>
+          <Link to="/shop" className="product-category-home">
+            Product Category
+          </Link>
+        </div>
       </section>
     </div>
   );

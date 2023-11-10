@@ -39,6 +39,18 @@ export const Shop = () => {
     get_products();
   }, []);
 
+  if (loading)
+     return (<div class="lds-roller">
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+   </div>); 
+
   return (
     <main className="main-content-shop">
       <div className="grid-container">

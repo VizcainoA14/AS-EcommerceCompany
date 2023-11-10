@@ -43,7 +43,7 @@
   flex-direction: column;
   width: 40.0625rem;
   min-height: 32.423125rem;
-  gap: 1.2rem;
+  gap: 1.5rem;
   outline: .09em solid #eaeaea;
   height: auto;
 }
@@ -84,12 +84,25 @@
   font-size: 1.25rem;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
-  border: none;
+  border: .08rem solid #7db2f3;
   background-color: #7db2f3;
   border-color: #7db2f3;
   width: 18.15625rem;
   color: #fff;
   margin-right: 1rem;
+  cursor: pointer;
+  transition: background .25s;
+  
+}
+
+.buy-product-submit-button:hover { 
+  background: #fff;
+  color: #7db2f3;
+  border: .08rem solid #7db2f3;
+}
+
+.buy-product-submit-button:active {
+  transform: scale(0.9);
 }
 
 .form-buy-product {
@@ -102,4 +115,12 @@
   background: rgb(40, 41, 40);
 }
 
+.Quantity-buy-product-content { 
+  display: flex;
+  gap: 1rem;
+}
 
+.Quantity-buy-product-content > :nth-child(2){
+  width: 3rem;
+  text-align: start;
+}

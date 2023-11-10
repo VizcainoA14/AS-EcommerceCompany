@@ -58,6 +58,10 @@
   margin-bottom: .7rem;
 }
 
+.button-form-add-item:active { 
+  transform: scale(0.9);
+}
+
 .submit-form-container { 
   display: flex;
   justify-content: center;
@@ -76,6 +80,10 @@
   width: 7rem;
 }
 
+.close:active { 
+  transform: scale(0.9);
+}
+
 .add-button {
   font-family: "Poppins", sans-serif;
   border: none;
@@ -84,16 +92,17 @@
   align-items: center;
   width: 13.75rem; 
   height: 3.6875rem; 
-  color: #fff;
-  background: #99fbae;
+  color: #f5f5f5;
+  background: #49e2a0;
   border-radius: 3.125rem; 
   font-size: 1.1875rem; 
   font-weight: 700;
   cursor: pointer;
 }
 
+
 .add-button:hover {
-  transition: all .5s ease;
+  transition: all .2s ease;
   transform: scale(1.1);
 }
 
@@ -104,4 +113,14 @@ label {
 
 input { 
   padding: .3rem 0 .3rem .5rem;
+}
+
+.flex-container {
+   display: flex;
+   justify-content: center;
+}
+
+.center-items { 
+  display: flex;
+  justify-content: center;
 }
