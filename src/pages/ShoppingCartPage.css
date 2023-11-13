@@ -1,118 +1,148 @@
 .shopping-cart-content {
-    display: grid;
-    grid-template-columns: auto auto;
-    background: #fbb; 
-    width: 100%;
-    min-height: 110vh;
-    position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  background: #fbb;
+  width: 100%;
+  min-height: 110vh;
+  position: relative;
 }
 
-.shopping-cart-main-content { 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    flex-direction: column;
-    min-height: 110vh;
-    height: auto;
-    background: #fff;
-    padding: 1.5rem;
+.shopping-cart-main-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: column;
+  min-height: 110vh;
+  height: auto;
+  background: #fff;
+  padding: 1.5rem;
 }
 
-.shopping-cart-main-content > h2 { 
-    font-size: 2rem;
-    color: #212521;
-    margin: 0;
-    font-weight: 400;
-
+.shopping-cart-main-content > h2 {
+  font-size: 2rem;
+  color: #212521;
+  margin: 0;
+  font-weight: 400;
 }
 
 .shopping-cart-item {
-    display: flex; 
-    flex-direction: row;
-    background-color: #f8f8f8;
-    width: 100%;
-    height: auto;
-    margin-right: 1rem;
-    border: .1rem solid #eaeaea;
+  display: flex;
+  flex-direction: row;
+  background-color: #f8f8f8;
+  width: 100%;
+  height: auto;
+  margin-right: 1rem;
+  border: 0.1rem solid #eaeaea;
 }
 
-.img-shopping-front-item { 
-    max-width: 10rem;
-    height: auto;
-    object-fit: cover;
+.img-shopping-front-item {
+  max-width: 10rem;
+  height: auto;
+  object-fit: cover;
 }
 
 .img-shopping-front-item-container {
-    padding: 1rem;
-    display: inline-block;
- }
+  padding: 1rem;
+  display: inline-block;
+}
 
 .description-container-shoppping-front {
-    padding: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .description-container-shoppping-front > :first-child {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .description-container-shoppping-front > :nth-child(-n + 4) {
-    font-weight: light;
+  font-weight: light;
 }
-
-
 
 .shopping-cart-aside {
-    background: rgb(244, 244, 245);
-    border-left: 0.08rem solid #eaeaea;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+  background: rgb(244, 244, 245);
+  border-left: 0.08rem solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
-.to-pay-shopping-cart-front { 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.to-pay-shopping-cart-front {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.to-pay-shopping-cart-front > h2 { 
-    margin: 0;
-    margin-top: 2rem;
-    width: max-content;
-    font-weight: 300;
+.to-pay-shopping-cart-front > h2 {
+  margin: 0;
+  margin-top: 2rem;
+  width: max-content;
+  font-weight: 300;
 }
 
 .to-pay-shopping-cart-front > span {
-    width: max-content;
-    align-self: flex-end;
-    font-size: 1.2rem;
+  width: max-content;
+  align-self: flex-end;
+  font-size: 1.2rem;
 }
 
-
-.title-aside-shopping-front { 
-    font-size: 2rem;
-    color: #212521;
-    margin: 0;
-    font-weight: 400;
+.title-aside-shopping-front {
+  font-size: 2rem;
+  color: #212521;
+  margin: 0;
+  font-weight: 400;
 }
 
-
-.button-shopping-cart-front-1 {
-    width: 100%;
-    height: 3rem;
-    background: #fbb;
-    border: none;
-    border-radius: 0.3rem;
-    color: #110a0a;
-    font-size: 1.2rem;
-    font-weight: 300;
-    cursor: pointer;
-    margin-top: 1rem;
+.div-form-shopping-cart-front {
+    
 }
 
-.button-shopping-cart-front-1:active {
-    transform: scale(0.9);
+.form-shopping-cart-front {
+  display: flex;
+  margin-top: 0.7rem;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.form-shopping-cart-front > input {
+  width: 95%;
+  background: #fff;
+  border: 0.0625rem solid #eaeaea;
+  font-size: 1rem;
+}
+
+/*.button-shopping-cart-front-1 {
+  width: 98%;
+  align-self: center;
+  height: 3rem;
+  background: #fbb;
+  border: none;
+  border-radius: 0.3rem;
+  color: #110a0a;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+ 
+}*/
+
+.button-pay-aside-shopping-cart-front { 
+  padding: 0;
+  align-self: center;
+  height: 3rem;
+  background: #fbb;
+  border: none;
+  border-radius: 0.3rem;
+  color: #110a0a;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  width: 50%;
+  margin: 0.7rem 0 0 0;
+}
+
+.button-pay-aside-shopping-cart-front:active {
+  transform: scale(0.9);
+  transition: transform 0.2s;
 }
