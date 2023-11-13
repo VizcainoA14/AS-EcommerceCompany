@@ -112,3 +112,7 @@
     cursor: pointer;
     margin-top: 1rem;
 }
+
+.button-shopping-cart-front-1:active {
+    transform: scale(0.9);
+}

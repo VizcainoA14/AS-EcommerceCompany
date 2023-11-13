@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./BuyProduct.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useParams } from "react-router-dom";
 import { ShoppingCart } from "../components/ShoppingCart";
+
 
 export const Buy = () => {
   const { id } = useParams();
@@ -13,6 +15,11 @@ export const Buy = () => {
   const { data, setData } = ShoppingCart();
   const [numberStock, setnumberStock] = useState(1)
   const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/shopping-cart');
+  };
 
   const get_product = async (id) => {
     try {
@@ -48,12 +55,6 @@ export const Buy = () => {
     });
   };
 
-  const limpiarDatos = () => {
-    setData({
-      list_products: [],
-      list_amount: []
-    }); // Reinicia el estado, eliminando los datos locales
-  };
 
   useEffect(() => {
     get_product(id);
@@ -123,7 +124,7 @@ export const Buy = () => {
                   ))}
                 </select></div>
                 <div className="form-buy-product">
-                  <button className="buy-product-submit-button" type="submit">
+                <button className="buy-product-submit-button" type="submit" onClick={() => { handleClick(); addToCart(products.id_product, quantity); } }>
                     Buy
                   </button>
                   <button className="buy-product-submit-button" onClick={() => addToCart(products.id_product, quantity)} >
