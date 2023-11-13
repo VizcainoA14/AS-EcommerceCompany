@@ -120,23 +120,6 @@ export const Header = () => {
       {isAuthenticated ? (
         userRol === "Admin" ? (
         <>
-          <nav className="nav-before-header">
-            <div className="container-nav-before-header">
-              <div className="faEnvelope">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </div>
-              <span className="text-light span-nav-before-header">
-                info@company.com
-              </span>
-
-              <div className="faEnvelope">
-                <FontAwesomeIcon icon={faPhone} />
-              </div>
-              <span className="text-light span-nav-before-header">
-                01-8000-9955
-              </span>
-            </div>
-          </nav>
           <header className="header">
             <img className="logo-img" src={iconImage} alt="Icon" />
             <nav className="nav">
@@ -163,16 +146,6 @@ export const Header = () => {
                 </li>
               </ul>
             </nav>
-            <div className="input-search-container">
-              <input
-                className="input-search"
-                type="text"
-                placeholder="Search"
-              />
-              <div className="search-button">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-            </div>
             <div className="__header-logout-container">
               <Link className="faShoppingCart" to="/shopping-cart">
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -192,23 +165,6 @@ export const Header = () => {
         </>
         ) : (
           <>
-          <nav className="nav-before-header">
-            <div className="container-nav-before-header">
-              <div className="faEnvelope">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </div>
-              <span className="text-light span-nav-before-header">
-                info@company.com
-              </span>
-
-              <div className="faEnvelope">
-                <FontAwesomeIcon icon={faPhone} />
-              </div>
-              <span className="text-light span-nav-before-header">
-                01-8000-9955
-              </span>
-            </div>
-          </nav>
           <header className="header">
             <img className="logo-img" src={iconImage} alt="Icon" />
             <nav className="nav">
@@ -230,16 +186,6 @@ export const Header = () => {
                 </li>
               </ul>
             </nav>
-            <div className="input-search-container">
-              <input
-                className="input-search"
-                type="text"
-                placeholder="Search"
-              />
-              <div className="search-button">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-            </div>
             <div className="__header-logout-container">
               <Link className="faShoppingCart" to="/shopping-cart">
                 <FontAwesomeIcon icon={faShoppingCart} />
@@ -282,16 +228,6 @@ export const Header = () => {
                 </li>
               </ul>
             </nav>
-            <div className="input-search-container">
-              <input
-                className="input-search"
-                type="text"
-                placeholder="Search"
-              />
-              <div className="search-button">
-                <FontAwesomeIcon icon={faSearch} />
-              </div>
-            </div>
             <div className="login-header-container">
               <button
                 className="login-button"

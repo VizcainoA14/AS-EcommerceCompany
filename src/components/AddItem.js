@@ -28,12 +28,12 @@ export const PopupForm = () => {
   useEffect(() => { 
 
     setName_product("Name");
-    setPrice(0);
+    setPrice(1);
     setBrand("Brand");
     setCategory("Category");
     setDescription("Description");
-    setStock(0);
-    setImage1("Image 1");
+    setStock(1);
+    setImage1("https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png");
     setImage2(null);
     setImage3(null);
 
@@ -99,8 +99,6 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Name"
             type="text"
-            value={name_product}
-            required
             onChange={(event) => setName_product(event.target.value)}
           />
 
@@ -109,8 +107,6 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Price"
             type="number"
-            value={price}
-            required
             onChange={(event) => setPrice(event.target.value)}
           />
 
@@ -119,8 +115,6 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Brand"
             type="text"
-            value={brand}
-            required
             onChange={(event) => setBrand(event.target.value)}
           />
 
@@ -129,8 +123,6 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Category"
             type="text"
-            value={category}
-            required
             onChange={(event) => setCategory(event.target.value)}
           />
 
@@ -139,42 +131,38 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Description"
             type="text"
-            value={description}
-            required
             onChange={(event) => setDescription(event.target.value)}
           />
 
 
           <label className="popup-form-child">Stock</label>
           <input className="popup-form-child"
+            placeholder = "Stock"
             type="number"
-            value={stock}
-            required
             onChange={(event) => setStock(event.target.value)}
           />
 
 
           <label className="popup-form-child">Image 1</label>
           <input className="popup-form-child"
+            placeholder="www.urldelaimagen1.com"
             type="text"
-            value={image1}
-            required
             onChange={(event) => setImage1(event.target.value)}
           />
 
 
           <label className="popup-form-child">Image 2</label>
           <input className="popup-form-child"
+            placeholder="www.urldelaimagen2.com"
             type="text"
-            value={image2}
             onChange={(event) => setImage2(event.target.value)}
           />
 
           
           <label className="popup-form-child">Image 3</label>
           <input className="popup-form-child"
+            placeholder="www.urldelaimagen2.com"
             type="text"
-            value={image3}
             onChange={(event) => setImage3(event.target.value)}
           />
 

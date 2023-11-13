@@ -173,8 +173,8 @@
 }
 
 .profile-img {
-  width: 5rem;
-  min-height: 5rem;
+  width: 3.5rem;
+  min-height: 3.5rem;
   border-radius: 10%;
   transition: transform 0.2s ease;
 }

@@ -47,7 +47,6 @@ export const Buy = () => {
       list_amount: [...data.list_amount, quantityINT]
     });
   };
-  console.log(data);
 
   const limpiarDatos = () => {
     setData({
