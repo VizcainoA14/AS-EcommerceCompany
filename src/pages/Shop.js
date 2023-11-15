@@ -53,6 +53,12 @@ export const Shop = () => {
 
   return (
     <main className="main-content-shop">
+      <h1 className= "text-align-center title-shopping">
+       Products from the best brands
+      </h1>
+      <p class="text-align-center">
+       Product categories: Smartphones, Gaming Consoles, Audio, Computers and Wearables
+     </p>
       <div className="grid-container">
         {products.map((products, index) => (
           <div key={index} className="grid-item">

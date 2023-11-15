@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 1.25rem; 
-  width: 80%;
+  width: 85%;
   position: relative;
 }
 
@@ -24,14 +24,8 @@
 .publicity-img { 
   position: inherit;
   top: 3.5rem;
-  left: -2.5rem;
+  left: 5.5rem;
   width: 43%;
-}
-
-
-.fire {
-  max-width: 6.25rem; 
-  min-height: 6.25rem; 
 }
 
 .last-day-container {
@@ -49,14 +43,18 @@
   font-weight: 900;
 }
 
-.dto {
+.prod {
   color: #2136f5;
   font-family: "Inter", Helvetica;
-  font-size: 4.375rem; 
-  font-weight: 900;
-  width: 24.4375rem; 
+  font-size: 4rem; 
+  font-weight: 800;
+  width: 33.4375rem; 
   margin-bottom: 0;
   margin-top: 0;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
 }
 
 .selected-products {
@@ -64,10 +62,14 @@
   font-family: "Inter", Helvetica;
   font-size: 2.1875rem; 
   font-style: italic;
-  font-weight: 700;
-  top: 4.1875rem; 
-  width: 21.125rem; 
+  font-weight: 600;
+  top: 2.1875rem; 
+  width: 32.8rem; 
   margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap; 
+  
 }
 
 .shop-now {
@@ -75,13 +77,13 @@
   font-family: "Inter", Helvetica;
   color: #fff;
   padding: 0.8125rem; 
-  width: auto;
+  width: auto; 
   font-size: 3.4375rem; 
   cursor: pointer;
   border-radius: 0.5625rem; 
-  font-weight: 900;
+  font-weight: 800;
   display: inline-block; 
-  margin-right: 38.75rem; 
+  margin-right: 37.75rem; 
   text-decoration: none;
   border: 0.1875rem solid #000;
   transition: transform .3s ease;
@@ -104,7 +106,7 @@
   flex-direction: row;
   align-items: center;
   text-align: center;
-  height: 9.375rem; 
+  height: 13.375rem; 
 }
 
 .shop-by-category {
@@ -121,10 +123,10 @@
 .product-category-home {
   padding: 1rem;
   text-decoration: none;
-  background: #fff;
+  background: #abc7f3;
   color: #212527;
   border-radius: 0.625rem;
-  border: 0.18rem solid #2136f5;
+  border: 0.18rem solid #abc7f3;
   transition: transform 0.3s ease;
   font-size: 1.2rem;
 }

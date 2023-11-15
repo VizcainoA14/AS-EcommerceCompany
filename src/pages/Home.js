@@ -8,20 +8,10 @@ export const Home = () => {
       <div className="content-container">
         <div className="__content-container-text">
           <div className="last-day-container">
-            <img
-              className="fire last-day-container-items"
-              alt="fire"
-              src="https://cdn.animaapp.com/projects/652ad6caa175714794fcef38/releases/652c52a4bf695d65ea08484f/img/image-10.png"
-            />
-            <p className="last-days last-day-container-items">Last Days</p>
-            <img
-              className="fire last-day-container-items"
-              alt="fire"
-              src="https://cdn.animaapp.com/projects/652ad6caa175714794fcef38/releases/652c52a4bf695d65ea08484f/img/image-10.png"
-            />
+            <p className="last-days last-day-container-items">🚀 Latest news in technology 🚀</p>
           </div>
-          <p className="dto">40% DTO</p>
-          <p className="selected-products">Selected products</p>
+          <p className="prod">NEW PRODUCTS</p>
+          <p className="selected-products">Choose your favorite products</p>
         </div>
         <img className="publicity-img" src={Propaganda} alt="Publicidad"></img>
       </div>
@@ -30,19 +20,27 @@ export const Home = () => {
       </Link>
       <section className="section">
         <div className="show-by-category">
-          <h2 className="shop-by-category">Show By Category</h2>
+          <h2 className="shop-by-category">Shop By Category</h2>
         </div>
         <div className="product-category-home-container">
           <Link to="/shop" className="product-category-home">
-            Product Category
+            Smartphones 
           </Link>
           <Link to="/shop" className="product-category-home">
-            Product Category
+            Gaming Consoles 
           </Link>
           <Link to="/shop" className="product-category-home">
-            Product Category
+            Audio
+          </Link>
+          <Link to="/shop" className="product-category-home">
+            Computers 
+          </Link>
+          <Link to="/shop" className="product-category-home">
+            Wearables 
           </Link>
         </div>
+        <p>Don't miss the opportunity to experience excellence in every detail. Explore the new and take your technology experience to the next level! 🌟</p>
+        <p>  Visit our store now and discover the excitement of the latest in technology. Don't be left behind, join the future today! 🚀💻📱🎮</p>
       </section>
     </div>
   );

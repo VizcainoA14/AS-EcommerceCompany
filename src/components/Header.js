@@ -98,7 +98,7 @@ export const Header = () => {
         },
         body: JSON.stringify({
           user_id: user.sub,
-          user_name: user.name,
+          user_name: user.nickname,
           email: user.email,
           role: rolesStr,
         }),

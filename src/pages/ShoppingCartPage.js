@@ -172,14 +172,15 @@ export const ShoppingCartFront = () => {
         {" "}
         {/*Secondary Content */}
         <h1 className="title-aside-shopping-front text-align-center">
-          Total Buy
+        Purchase Summary
         </h1>
         <div className="to-pay-shopping-cart-front">
-          <h2 className="text-align-start">To Pay... </h2>
+          <h2 className="text-align-start">Total to pay </h2>
           <span>${total_buy}</span>
         </div>
         <div className="div-form-shopping-cart-front">
           <form className="form-shopping-cart-front" onSubmit={BuyProducts}>
+          <h1 className="text-align-start">Purchase shipping information </h1>
             <label className="label-shopping-cart-front">
               Shipping Address
             </label>

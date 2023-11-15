@@ -28,11 +28,11 @@
 .shopping-cart-item {
   display: flex;
   flex-direction: row;
-  background-color: #f8f8f8;
+  background-color: #fff ;
   width: 100%;
   height: auto;
   margin-right: 1rem;
-  border: 0.1rem solid #eaeaea;
+  border: 0.15rem solid  rgba(167, 194, 252, 0.915);
 }
 
 .img-shopping-front-item {
@@ -62,7 +62,7 @@
 }
 
 .shopping-cart-aside {
-  background: rgb(244, 244, 245);
+  background: rgba(167, 194, 252, 0.915);
   border-left: 0.08rem solid #eaeaea;
   display: flex;
   flex-direction: column;
@@ -95,9 +95,9 @@
   font-weight: 400;
 }
 
-.div-form-shopping-cart-front {
+/*.div-form-shopping-cart-front {
     
-}
+}*/
 
 .form-shopping-cart-front {
   display: flex;
@@ -131,7 +131,7 @@
   padding: 0;
   align-self: center;
   height: 3rem;
-  background: #fbb;
+  background: rgb(127, 233, 178);
   border: none;
   border-radius: 0.3rem;
   color: #110a0a;
