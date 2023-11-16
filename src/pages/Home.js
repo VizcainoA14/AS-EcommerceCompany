@@ -39,8 +39,8 @@ export const Home = () => {
             Wearables 
           </Link>
         </div>
-        <p>Don't miss the opportunity to experience excellence in every detail. Explore the new and take your technology experience to the next level! 🌟</p>
-        <p>  Visit our store now and discover the excitement of the latest in technology. Don't be left behind, join the future today! 🚀💻📱🎮</p>
+        <p className="text">Don't miss the opportunity to experience excellence in every detail. Explore the new and take your technology experience to the next level! 🌟</p>
+        <p className="text">  Visit our store now and discover the excitement of the latest in technology. Don't be left behind, join the future today! 🚀💻📱🎮</p>
       </section>
     </div>
   );

@@ -157,7 +157,7 @@ export const ShoppingCartFront = () => {
                 <b>Quantity: </b>
                 {amount[index]}
               </span>
-              <button
+              <button className="button-delete-shopping-cart-front"
                 onClick={() =>
                   DeleteProduct_from_shopping_cart(products.id_product)
                 }
@@ -175,7 +175,7 @@ export const ShoppingCartFront = () => {
         Purchase Summary
         </h1>
         <div className="to-pay-shopping-cart-front">
-          <h2 className="text-align-start">Total to pay </h2>
+          <h2 className="text-align-start">Total to pay...........................................................</h2>
           <span>${total_buy}</span>
         </div>
         <div className="div-form-shopping-cart-front">

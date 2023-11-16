@@ -26,15 +26,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100vw
 }
 
 .container-about-section-1 h2 {
-  font-size: 2rem;
+  font-size: 2vw;
   margin: 0;
 }
 
 .container-about-section-1 p {
   line-height: 2;
+  font-size: 1.5vw;
+  display: flex;
 }
 
 .__div-section-2 {
@@ -186,4 +189,8 @@
   height: auto;
   text-align: center;
   flex-direction: column;
+}
+.publicity-section-1-about-us {
+  width: 25vw;
+
 }

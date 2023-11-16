@@ -16,56 +16,70 @@
 
 .section-buy-product-div-specification-content-1 {
   background: #fff;
-  width: 25rem;
-  min-height: 32.423125rem;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-  margin: 3rem 0 3rem 0;
-  outline: .09em solid #eaeaea;
+  width: 25vw;
+  min-height: 32.423125vw;
+  padding: 1.5vw 1.5vw 1.5vw 1.5vw;
+  margin: 3vw 0 3vw 0;
+  outline: .09vw solid #eaeaea;
   height: auto;
 }
 
 
 .buy-product-main-img-container {
-  margin-top: 1em;
+  margin-top: 1vw;
   width: auto;
 }
 
 .buy-product-main-img-container > img {
   width: 100%;
-  border-radius: 0.25rem;
+  border-radius: 0.25vw;
 }
 
 .section-buy-product-div-specification-content-2 {
-  margin: 3rem 0 3rem 0;
-  padding: 1.5rem 1rem 1.5rem 1.5rem;
+  margin: 3vw 0 3vw 0;
+  padding: 1.5vw 1vw 1.5vw 1.5vw;
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  width: 40.0625rem;
-  min-height: 32.423125rem;
-  gap: 1.5rem;
-  outline: .09em solid #eaeaea;
+  width: 40.0625vw;
+  min-height: 32.423125vw;
+  gap: 1.5vw;
+  outline: .09vw solid #eaeaea;
   height: auto;
 }
 
 .buy-product-name { 
-  font-size: 2rem;
+  font-size: 2vw;
   margin: 0;
 }
 
 
 .section-buy-product-div-specification-content-2 > .buy-product-price {
-  font-size: 2rem;
+  font-size: 2vw;
   margin: 0;
+}
+.section-buy-product-div-specification-content-2 > span {
+  font-size: 1.5vw;
 }
 
 .paragraph-buy-product-content-2 {
-  line-height: 1.6rem;
+  line-height: 1.6vw;
   margin: 0;
 }
 
-.span-buy-product-content-2 {
+.paragraph-buy-product-content-2{
+  font-size: 1.5vw;
 }
+
+.select-quantity-buy-product{
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Quantity-buy-product-content{
+  font-size: 1.5vw;
+}
+
 
 .buy-product-stars {
   display: flex;
@@ -76,20 +90,21 @@
   color: #ff0;
 }
 
+
 .bold-text {
   font-weight: bold;
 }
 
 .buy-product-submit-button {
-  font-size: 1.25rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  border: .08rem solid #7db2f3;
+  font-size: 1.25vw;
+  padding: 0.5vw 1vw;
+  border-radius: 0.3vw;
+  border: .08vw solid #7db2f3;
   background-color: #7db2f3;
   border-color: #7db2f3;
-  width: 18.15625rem;
+  width: 18.15625vw;
   color: #fff;
-  margin-right: 1rem;
+  margin-right: 1vw;
   cursor: pointer;
   transition: background .25s;
   
@@ -98,7 +113,7 @@
 .buy-product-submit-button:hover { 
   background: #fff;
   color: #7db2f3;
-  border: .08rem solid #7db2f3;
+  border: .08vw solid #7db2f3;
 }
 
 .buy-product-submit-button:active {
@@ -111,16 +126,16 @@
 }
 
 .section-2-buy-product {
-  height: 20rem;
+  height: 20vw;
   background: rgb(40, 41, 40);
 }
 
 .Quantity-buy-product-content { 
   display: flex;
-  gap: 1rem;
+  gap: 1vw;
 }
 
 .Quantity-buy-product-content > :nth-child(2){
-  width: 3rem;
+  width: 3vw;
   text-align: start;
 }

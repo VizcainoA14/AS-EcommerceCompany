@@ -115,6 +115,8 @@ export const Header = () => {
     }); // Reinicia el estado, eliminando los datos locales
   };
 
+  const cart = data.list_products.length;
+
   return (
     <div className="header-container">
       {isAuthenticated ? (
@@ -148,6 +150,9 @@ export const Header = () => {
             </nav>
             <div className="__header-logout-container">
               <Link className="faShoppingCart" to="/shopping-cart">
+              <div class="circle">
+                  <span class="number">{cart}</span>
+                </div>
                 <FontAwesomeIcon icon={faShoppingCart} />
               </Link>
               <img className="profile-img" src={user.picture} alt={user.name} />
@@ -188,6 +193,9 @@ export const Header = () => {
             </nav>
             <div className="__header-logout-container">
               <Link className="faShoppingCart" to="/shopping-cart">
+              <div class="circle">
+                  <span class="number">{cart}</span>
+                </div>
                 <FontAwesomeIcon icon={faShoppingCart} />
               </Link>
               <img className="profile-img" src={user.picture} alt={user.name} />
