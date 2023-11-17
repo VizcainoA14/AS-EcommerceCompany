@@ -9,9 +9,9 @@ import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Auth0Provider
-    domain="dev-b6nqtl5cxl0okx61.us.auth0.com"
-    clientId="WmPa4lqH9a1e1GJHH4iONPr2RInW46eb"
-    client_secret="i-tFOY8ICbpyraGeaRvNqnPfw7me5yg579qjngPTeM9dNHisXsYgDWipwxkV3cx8"
+    domain="asecommercesystem.us.auth0.com"
+    clientId="onq3EGQWUHWAUqLjgioAyZjb3CW1xFBB"
+    client_secret="RSQyDviZVW15zBOvQQcIx0QAiQ0gGG2BR8Eq21aJlIuFSOdBaNYGvX5Ai8VHpN0a"
     redirectUri={window.location.origin}
   >
     <BrowserRouter>

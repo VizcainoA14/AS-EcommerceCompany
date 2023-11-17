@@ -75,7 +75,7 @@ export const Header = () => {
     };
 
     const response = await fetch(
-      `https://dev-b6nqtl5cxl0okx61.us.auth0.com/api/v2/users/${user.sub}/roles`,
+      `https://asecommercesystem.us.auth0.com/api/v2/users/${user.sub}/roles`,
       requestOptions
     );
     const data = await response.json();
