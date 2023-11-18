@@ -77,8 +77,6 @@
   padding: 3vw;
   width: 9vw;
   align-self: right;
-
-  
 }
 
 .to-pay-shopping-cart-front {
@@ -197,4 +195,32 @@
   margin-top: 5.5vw;
 }
 
+.pay-announcement { 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #f5f5f5;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1em;
+  border: 0.0625rem solid #000;
+}
 
+.close-pay-announcement { 
+  padding: 0;
+  align-self: center;
+  height: 3rem;
+  background: #a00;
+  border: none;
+  border-radius: 0.3rem;
+  color: #110a0a;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  min-width: 10em;
+  margin: 0.7rem 0 0 0;
+  color: #fff;
+}

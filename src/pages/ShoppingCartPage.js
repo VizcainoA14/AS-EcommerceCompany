@@ -3,6 +3,8 @@ import "./ShoppingCartPage.css";
 import { useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useAuth0 } from "@auth0/auth0-react";
+import ReactModal from "react-modal";
+import Modal from "react-modal";
 
 export const ShoppingCartFront = () => {
   const [Images, setImages] = useState([]);
@@ -17,6 +19,22 @@ export const ShoppingCartFront = () => {
   const [shipping_address, setShipping_address] = useState("");
   const [phone_contact, setPhone_contact] = useState("");
   const { user } = useAuth0();
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
+
+  const upPopUp = () => {
+    setShowAnnouncement(!showAnnouncement);
+  };
+
+  const handleAnnouncement = () => {
+    if (shipping_address.trim() !== "" && phone_contact.trim() !== "") {
+      setShowAnnouncement(true);
+      setTimeout(() => {
+        setShowAnnouncement(false);
+      }, 6000);
+    } else {
+      alert("¡Please, fill the fields shipping address and phone contact!");
+    }
+  };
 
   const GetShoppingCartProducts = async () => {
     try {
@@ -157,7 +175,8 @@ export const ShoppingCartFront = () => {
                 <b>Quantity: </b>
                 {amount[index]}
               </span>
-              <button className="button-delete-shopping-cart-front"
+              <button
+                className="button-delete-shopping-cart-front"
                 onClick={() =>
                   DeleteProduct_from_shopping_cart(products.id_product)
                 }
@@ -172,15 +191,18 @@ export const ShoppingCartFront = () => {
         {" "}
         {/*Secondary Content */}
         <h1 className="title-aside-shopping-front text-align-center">
-        Purchase Summary
+          Purchase Summary
         </h1>
         <div className="to-pay-shopping-cart-front">
-          <h2 className="text-align-start">Total to pay...........................................................</h2>
+          <h2 className="text-align-start">
+            Total to
+            pay...........................................................
+          </h2>
           <span>${total_buy}</span>
         </div>
         <div className="div-form-shopping-cart-front">
           <form className="form-shopping-cart-front" onSubmit={BuyProducts}>
-          <h1 className="text-align-start">Purchase shipping information </h1>
+            <h1 className="text-align-start">Purchase shipping information </h1>
             <label className="label-shopping-cart-front">
               Shipping Address
             </label>
@@ -189,6 +211,7 @@ export const ShoppingCartFront = () => {
               className="input-shopping-cart-front"
               type="text"
               placeholder="Address..."
+              value={shipping_address}
               onChange={(event) => setShipping_address(event.target.value)}
             />
             <label className="label-shopping-cart-front">Phone Contact</label>
@@ -197,11 +220,32 @@ export const ShoppingCartFront = () => {
               className="input-shopping-cart-front"
               type="text"
               placeholder="Phone..."
+              value={phone_contact}
               onChange={(event) => setPhone_contact(event.target.value)}
             />
-            <button className="button-pay-aside-shopping-cart-front" type="submit">
-              Pay
-            </button>
+            <div>
+              <button
+                onClick={handleAnnouncement}
+                className="button-pay-aside-shopping-cart-front"
+                type="button"
+              >
+                Pay
+              </button>
+              {showAnnouncement && (
+                <Modal
+                  isOpen={showAnnouncement}
+                  className="pay-announcement"
+                  contentLabel="Modal-Pay-Announcement"
+                >
+                  <h1 className="text-align-center">
+                    Your purchase was successful
+                  </h1>
+                  <button className="close-pay-announcement" onClick={upPopUp}>
+                    Close
+                  </button>
+                </Modal>
+              )}
+            </div>
           </form>
         </div>
       </aside>
