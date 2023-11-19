@@ -36,6 +36,7 @@ export const Shop = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     get_products();
   }, []);
 

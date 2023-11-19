@@ -62,6 +62,7 @@ export const Inventory = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
         const get_token = await getIdTokenClaims();

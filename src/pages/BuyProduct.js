@@ -57,6 +57,7 @@ export const Buy = () => {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     get_product(id);
 
   }, []);

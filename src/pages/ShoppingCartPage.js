@@ -20,9 +20,12 @@ export const ShoppingCartFront = () => {
   const [phone_contact, setPhone_contact] = useState("");
   const { user } = useAuth0();
   const [showAnnouncement, setShowAnnouncement] = useState(false);
+  const [stateBuy, setStateBuy] = useState([]);
 
   const upPopUp = () => {
     setShowAnnouncement(!showAnnouncement);
+    limpiarDatos();
+    window.location.reload();
   };
 
   const handleAnnouncement = () => {
@@ -30,7 +33,9 @@ export const ShoppingCartFront = () => {
       setShowAnnouncement(true);
       setTimeout(() => {
         setShowAnnouncement(false);
-      }, 6000);
+        limpiarDatos();
+        window.location.reload();
+      }, 10000);
     } else {
       alert("¡Please, fill the fields shipping address and phone contact!");
     }
@@ -122,6 +127,12 @@ export const ShoppingCartFront = () => {
         throw new Error("Network response was not OK");
       }
       const json = await response.json();
+      if (json === "compra realizada") {
+        setStateBuy("Purchase made🛍️");
+      }
+      else{
+        setStateBuy(Object.keys(json).map((key) => `${json[key]}`).join("\n"));
+      }
     } catch (error) {
       setError(error);
     } finally {
@@ -129,7 +140,15 @@ export const ShoppingCartFront = () => {
     }
   };
 
+  const limpiarDatos = () => {
+    setData({
+      list_products: [],
+      list_amount: []
+    }); // Reinicia el estado, eliminando los datos locales
+  };
+
   useEffect(() => {
+    window.scrollTo(0, 0);
     GetShoppingCartProducts();
   }, []);
 
@@ -196,7 +215,7 @@ export const ShoppingCartFront = () => {
         <div className="to-pay-shopping-cart-front">
           <h2 className="text-align-start">
             Total to
-            pay...........................................................
+            pay.......................................
           </h2>
           <span>${total_buy}</span>
         </div>
@@ -227,7 +246,7 @@ export const ShoppingCartFront = () => {
               <button
                 onClick={handleAnnouncement}
                 className="button-pay-aside-shopping-cart-front"
-                type="button"
+                type="submit"
               >
                 Pay
               </button>
@@ -238,7 +257,7 @@ export const ShoppingCartFront = () => {
                   contentLabel="Modal-Pay-Announcement"
                 >
                   <h1 className="text-align-center">
-                  Purchase made🛍️
+                  {stateBuy}
                   </h1>   
                   <button className="close-pay-announcement" onClick={upPopUp}>
                     Close
