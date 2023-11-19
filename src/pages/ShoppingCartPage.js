@@ -238,7 +238,7 @@ export const ShoppingCartFront = () => {
                   contentLabel="Modal-Pay-Announcement"
                 >
                   <h1 className="text-align-center">
-                    Purchase made🛍️
+                  Purchase made🛍️
                   </h1>   
                   <button className="close-pay-announcement" onClick={upPopUp}>
                     Close
