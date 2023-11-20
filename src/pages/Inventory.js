@@ -3,6 +3,7 @@ import "./Inventory.css";
 import { useFetcher } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import PopupForm from "../components/AddItem";
+import UpdateItem from "../components/UpdateItem";
 
 export const Inventory = () => {
   const [products, setProducts] = useState([]);
@@ -144,12 +145,7 @@ export const Inventory = () => {
                     >
                       Remove
                     </button>
-                    <button
-                      className="update-button-inventory"
-                      onClick={() => handleUpdate(products.id_product)}
-                    >
-                      Update
-                    </button>
+                    <UpdateItem/>
                   </div>
                 </td>
               </tr>

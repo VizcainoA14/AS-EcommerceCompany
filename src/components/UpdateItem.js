@@ -3,11 +3,12 @@ import Modal from "react-modal";
 import "./Additem.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Inventory } from "../pages/Inventory";
+import "./UpdateItem.css";
 
 
 Modal.setAppElement("#root");
 
-export const PopupForm = () => {
+export const UpdateItem = () => {
   const [isOpen, setIsOpen] = useState(false);
   const get_token = useAuth0().getIdTokenClaims();
   const [accessToken, setAccessToken] = useState("");
@@ -81,8 +82,8 @@ export const PopupForm = () => {
 
   return (
     <div>
-      <button className="add-button" onClick={togglePopUp}>
-        Add Product
+      <button className="update-button-inventory" onClick={togglePopUp}>
+        Update
       </button>
       <Modal
         isOpen={isOpen}
@@ -182,4 +183,4 @@ export const PopupForm = () => {
   );
 };
 
-export default PopupForm;
+export default UpdateItem;
