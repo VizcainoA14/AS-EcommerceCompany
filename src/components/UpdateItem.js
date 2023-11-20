@@ -8,7 +8,15 @@ import "./UpdateItem.css";
 
 Modal.setAppElement("#root");
 
-export const UpdateItem = () => {
+export const UpdateItem = ({ productID, 
+                            product_name, 
+                            product_price,
+                            product_brand,
+                            product_category,
+                            product_description,
+                            product_stock}) => {
+
+
   const [isOpen, setIsOpen] = useState(false);
   const get_token = useAuth0().getIdTokenClaims();
   const [accessToken, setAccessToken] = useState("");
@@ -18,22 +26,16 @@ export const UpdateItem = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(0);
-  const [image1, setImage1] = useState("");
-  const [image2, setImage2] = useState(null);
-  const [image3, setImage3] = useState(null);
+
 
   useEffect(() => { 
 
-    setName_product("Name");
-    setPrice(1);
-    setBrand("Brand");
-    setCategory("Category");
-    setDescription("Description");
-    setStock(1);
-    setImage1("https://www.bicifan.uy/wp-content/uploads/2016/09/producto-sin-imagen.png");
-    setImage2(null);
-    setImage3(null);
-
+    setName_product(product_name);
+    setPrice(product_price);
+    setBrand(product_brand);
+    setCategory(product_category);
+    setDescription(product_description);
+    setStock(product_stock);
 
   }, []);
 
@@ -57,8 +59,8 @@ export const UpdateItem = () => {
 
 
     event.preventDefault();
-    fetch(`https://backend-ecommerce-api-fcrd.onrender.com/ADD_PRODUCT/?image1=${encodeURIComponent(image1)}`, {
-      method: "POST",
+    fetch(`https://backend-ecommerce-api-fcrd.onrender.com/UPDATE_PRODUCT/?id_product=${productID}`, {
+      method: "PUT",
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ` + token,
@@ -95,6 +97,7 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Name</label>
           <input className="popup-form-child"
             placeholder="Name"
+            value={name_product}
             type="text"
             onChange={(event) => setName_product(event.target.value)}
           />
@@ -103,6 +106,7 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Price</label>
           <input className="popup-form-child"
             placeholder="Price"
+            value={price}
             type="number"
             onChange={(event) => setPrice(event.target.value)}
           />
@@ -111,6 +115,7 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Brand</label>
           <input className="popup-form-child"
             placeholder="Brand"
+            value={brand}
             type="text"
             onChange={(event) => setBrand(event.target.value)}
           />
@@ -119,6 +124,7 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Category</label>
           <input className="popup-form-child"
             placeholder="Category"
+            value={category}
             type="text"
             onChange={(event) => setCategory(event.target.value)}
           />
@@ -127,6 +133,7 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Description</label>
           <input className="popup-form-child"
             placeholder="Description"
+            value={description}
             type="text"
             onChange={(event) => setDescription(event.target.value)}
           />
@@ -135,34 +142,10 @@ export const UpdateItem = () => {
           <label className="popup-form-child">Stock</label>
           <input className="popup-form-child"
             placeholder = "Stock"
+            value={stock}
             type="number"
             onChange={(event) => setStock(event.target.value)}
           />
-
-
-          <label className="popup-form-child">Image 1</label>
-          <input className="popup-form-child"
-            placeholder="www.urldelaimagen1.com"
-            type="text"
-            onChange={(event) => setImage1(event.target.value)}
-          />
-
-
-          <label className="popup-form-child">Image 2</label>
-          <input className="popup-form-child"
-            placeholder="www.urldelaimagen2.com"
-            type="text"
-            onChange={(event) => setImage2(event.target.value)}
-          />
-
-          
-          <label className="popup-form-child">Image 3</label>
-          <input className="popup-form-child"
-            placeholder="www.urldelaimagen2.com"
-            type="text"
-            onChange={(event) => setImage3(event.target.value)}
-          />
-
           <div className="center-items">
             <button
               className="popup-form-child button-form-add-item"

@@ -145,7 +145,13 @@ export const Inventory = () => {
                     >
                       Remove
                     </button>
-                    <UpdateItem/>
+                    <UpdateItem productID = {products.id_product}
+                                product_name = {products.name_product}
+                                product_price = {products.price}
+                                product_brand = {products.brand}
+                                product_category = {products.category}
+                                product_description = {products.description}
+                                product_stock = {products.stock}/>
                   </div>
                 </td>
               </tr>
