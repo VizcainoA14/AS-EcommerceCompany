@@ -11,6 +11,25 @@ export const Inventory = () => {
   const get_token = useAuth0().getIdTokenClaims();
   const [error, setError] = useState(null);
   const { getIdTokenClaims } = useAuth0();
+  const [showEditForm, setShowEditForm] = useState();
+  const [editProductDetails, seteditProductDetails] = useState();
+
+  const handleUpdate = async () => {
+    try {
+      const response = await fetch(
+        `https://backend-ecommerce-api-fcrd.onrender.com/productos/${products.id_product}`
+      );
+      if (!response.ok) {
+        throw new Error("It couldn't catch the product details...");
+      }
+
+      const productDetails = await response.json();
+      seteditProductDetails(productDetails); 
+      setShowEditForm(true);
+    } catch (error) {
+      console.error("Error to catch the product details", error);
+    }
+  };
 
   const get_products = async () => {
     try {
@@ -118,12 +137,20 @@ export const Inventory = () => {
                 <td>{products.description}</td>
                 <td>{products.stock}</td>
                 <td>
-                  <button
-                    className="removeButton"
-                    onClick={() => removeproducts(products.id_product)}
-                  >
-                    Remove
-                  </button>
+                  <div className="buttons-inventory-order">
+                    <button
+                      className="removeButton"
+                      onClick={() => removeproducts(products.id_product)}
+                    >
+                      Remove
+                    </button>
+                    <button
+                      className="update-button-inventory"
+                      onClick={() => handleUpdate(products.id_product)}
+                    >
+                      Update
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

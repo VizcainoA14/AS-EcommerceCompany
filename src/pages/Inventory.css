@@ -37,7 +37,7 @@
 .table-row {
   text-align: center;
   margin: 2vw;
-  border: 0.0625vw solid #eaeaea;;
+  border: 0.0625vw solid #eaeaea; 
 }
 
 .table-row td {
@@ -54,7 +54,7 @@
   font-family: "Poppins";
   width: 5.5vw;
   font-size: 0.7vw;
-
+  transition: transform .1s;
 }
 
 .removeButton:hover {
@@ -66,6 +66,32 @@
   transform: scale(0.9);
 }
 
+.update-button-inventory { 
+  background-color: rgb(128, 0, 128, .8);
+  color: white;
+  padding: 0.5vw 1vw;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  width: 5.5vw;
+  font-size: 0.7vw;
+  transition: transform .1s;
+}
+
+.update-button-inventory:hover{ 
+  transform: scale(1.1);
+}
+
+.update-button-inventory:active { 
+  transform: scale(0.9);
+}
+
+.buttons-inventory-order { 
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+}
 .title-inventory {
   text-align: center;
 }
