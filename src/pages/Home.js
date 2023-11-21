@@ -1,8 +1,14 @@
 import "./Home.css";
 import Propaganda from "../assets/img/Propaganda.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Home = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  } , []);
+
   return (
     <div className="home-container">
       <div className="content-container">

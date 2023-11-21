@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faHeart, faEye, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { ShoppingCart } from "../components/ShoppingCart";
 
 export const Shop = () => {
   const [Images, setImages] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { data, setData } = ShoppingCart();
 
   const get_products = async () => {
     try {
@@ -34,6 +36,15 @@ export const Shop = () => {
       setLoading(false);
     }
   };
+
+  const addToCart =  async (product, quantity) => {
+    const quantityINT = parseInt(quantity, 10);
+    setData({
+      ...data,
+      list_products: [...data.list_products, product],
+      list_amount: [...data.list_amount, quantityINT]
+    });
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -72,7 +83,7 @@ export const Shop = () => {
                 <FontAwesomeIcon className="icon-link-shop" icon={faEye} />
                 </Link>
                 <Link to="/shopping-cart" className="link-shop-watch-product">
-                <FontAwesomeIcon className="icon-link-shop" icon={faShoppingCart} />
+                <FontAwesomeIcon className="icon-link-shop" icon={faShoppingCart} onClick={() => addToCart(products.id_product, 1)}/>
                 </Link>
               </div>
               <img src={products.image_1} alt={`shop_${index + 1}`} />
