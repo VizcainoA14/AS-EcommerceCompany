@@ -103,6 +103,7 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder="Price"
             type="number"
+            min="1.000"
             onChange={(event) => setPrice(event.target.value)}
           />
 
@@ -135,6 +136,7 @@ export const PopupForm = () => {
           <input className="popup-form-child"
             placeholder = "Stock"
             type="number"
+            min="1"
             onChange={(event) => setStock(event.target.value)}
           />
 

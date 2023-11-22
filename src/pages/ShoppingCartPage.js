@@ -28,7 +28,7 @@ export const ShoppingCartFront = () => {
     window.location.reload();
   };
 
-  const handleAnnouncement = () => {
+  const handleAnnouncement = async () => {
     if (shipping_address.trim() !== "" && phone_contact.trim() !== "") {
       setShowAnnouncement(true);
       setTimeout(() => {
@@ -129,6 +129,7 @@ export const ShoppingCartFront = () => {
       const json = await response.json();
       if (json === "compra realizada") {
         setStateBuy("Purchase made🛍️");
+        handleAnnouncement();
       }
       else{
         setStateBuy(Object.keys(json).map((key) => `${json[key]}`).join("\n"));
@@ -140,7 +141,7 @@ export const ShoppingCartFront = () => {
     }
   };
 
-  const limpiarDatos = () => {
+  const limpiarDatos = async () => {
     setData({
       list_products: [],
       list_amount: []
@@ -220,7 +221,7 @@ export const ShoppingCartFront = () => {
           <span>${total_buy}</span>
         </div>
         <div className="div-form-shopping-cart-front">
-          <form className="form-shopping-cart-front" onSubmit={BuyProducts}>
+          <form className="form-shopping-cart-front" onSubmit={() => {BuyProducts();}}>
             <h1 className="text-align-start">Purchase shipping information </h1>
             <label className="label-shopping-cart-front">
               Shipping Address
@@ -244,7 +245,6 @@ export const ShoppingCartFront = () => {
             />
             <div>
               <button
-                onClick={handleAnnouncement}
                 className="button-pay-aside-shopping-cart-front"
                 type="submit"
               >

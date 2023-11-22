@@ -108,6 +108,7 @@ export const UpdateItem = ({ productID,
             placeholder="Price"
             value={price}
             type="number"
+            min="1.000"
             onChange={(event) => setPrice(event.target.value)}
           />
 
@@ -144,6 +145,7 @@ export const UpdateItem = ({ productID,
             placeholder = "Stock"
             value={stock}
             type="number"
+            min="1"
             onChange={(event) => setStock(event.target.value)}
           />
           <div className="center-items">
