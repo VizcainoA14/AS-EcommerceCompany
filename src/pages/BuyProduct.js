@@ -16,9 +16,14 @@ export const Buy = () => {
   const [numberStock, setnumberStock] = useState(1)
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
+  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
 
   const handleClick = () => {
     navigate('/shopping-cart');
+  };
+
+  const handleClick2 = () => {
+    navigate('/shop');
   };
 
   const get_product = async (id) => {
@@ -44,8 +49,6 @@ export const Buy = () => {
     }
   };
 
-
-  
   const addToCart = (product, quantity) => {
     const quantityINT = parseInt(quantity, 10);
     setData({
@@ -54,7 +57,6 @@ export const Buy = () => {
       list_amount: [...data.list_amount, quantityINT]
     });
   };
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -125,10 +127,23 @@ export const Buy = () => {
                   ))}
                 </select></div>
                 <div className="form-buy-product">
-                <button className="buy-product-submit-button" type="submit" onClick={() => { handleClick(); addToCart(products.id_product, quantity); } }>
+                <button className="buy-product-submit-button" type="submit" 
+                onClick={() => { 
+                  if(!isAuthenticated){
+                    loginWithRedirect();
+                    return;
+                  }
+                  handleClick(); addToCart(products.id_product, quantity); } }>
                     Buy
                   </button>
-                  <button className="buy-product-submit-button" onClick={() => addToCart(products.id_product, quantity)} >
+                  <button className="buy-product-submit-button" 
+                  onClick={() =>{
+                    if(!isAuthenticated){
+                      loginWithRedirect();
+                      return;
+                    }
+                    handleClick2();
+                    addToCart(products.id_product, quantity)}} >
                     Add To Cart
                 </button>
 

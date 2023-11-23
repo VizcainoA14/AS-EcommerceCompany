@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faHeart, faEye, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from 'react-router-dom';
 
 export const Shop = () => {
   const [Images, setImages] = useState([]);
@@ -12,6 +14,8 @@ export const Shop = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { data, setData } = ShoppingCart();
+  const { isAuthenticated, user, loginWithRedirect } = useAuth0();
+  const navigate = useNavigate();
 
   const get_products = async () => {
     try {
@@ -83,7 +87,16 @@ export const Shop = () => {
                 <FontAwesomeIcon className="icon-link-shop" icon={faEye} />
                 </Link>
                 <Link to="/shopping-cart" className="link-shop-watch-product">
-                <FontAwesomeIcon className="icon-link-shop" icon={faShoppingCart} onClick={() => addToCart(products.id_product, 1)}/>
+                  <FontAwesomeIcon className="icon-link-shop" icon={faShoppingCart} 
+                    onClick={(event) => {
+                      event.preventDefault();
+                      if(!isAuthenticated){
+                        loginWithRedirect();
+                      }else{
+                        addToCart(products.id_product, 1);
+                        navigate('/shopping-cart');
+                      }
+                    }}/>
                 </Link>
               </div>
               <img src={products.image_1} alt={`shop_${index + 1}`} />
