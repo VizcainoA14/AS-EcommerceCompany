@@ -4,6 +4,7 @@ import iconImage from "../assets/img/iconImage.png";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 import {
   faSearch,
   faEnvelope,
@@ -23,6 +24,7 @@ export const Header = () => {
   const [accessToken, setAccessToken] = useState("");
   const get_token = useAuth0().getIdTokenClaims();
   const { data, setData } = ShoppingCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated && !fetchData) {
@@ -160,7 +162,7 @@ export const Header = () => {
                 className="logout-button"
                 onClick={() => {
                   limpiarDatos();
-                  logout({ returnTo: window.location.origin })
+                  logout({ returnTo: navigate("/") })
                 }} 
               >
                 Logout
@@ -203,7 +205,7 @@ export const Header = () => {
                 className="logout-button"
                 onClick={() => {
                   limpiarDatos();
-                  logout({ returnTo: window.location.origin })
+                  logout({ returnTo: navigate("/") }) 
                 }} 
               >
                 Logout
