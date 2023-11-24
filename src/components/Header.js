@@ -162,7 +162,7 @@ export const Header = () => {
                 className="logout-button"
                 onClick={() => {
                   limpiarDatos();
-                  logout({ returnTo: navigate("/") })
+                  logout({ logoutParams: { returnTo: window.location.origin } })
                 }} 
               >
                 Logout
@@ -205,7 +205,7 @@ export const Header = () => {
                 className="logout-button"
                 onClick={() => {
                   limpiarDatos();
-                  logout({ returnTo: navigate("/") }) 
+                  logout({ logoutParams: { returnTo: window.location.origin } }) 
                 }} 
               >
                 Logout
