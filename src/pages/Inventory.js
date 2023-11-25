@@ -132,7 +132,7 @@ export const Inventory = () => {
               <tr key={products.id_product} className="table-row">
                 <td>{products.id_product}</td>
                 <td>{products.name_product}</td>
-                <td>{products.price}</td>
+                <td>${products.price}</td>
                 <td>{products.brand}</td>
                 <td>{products.category}</td>
                 <td>{products.description}</td>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Inventory.css";
+import "./Purchases.css";
 import { useFetcher } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import PopupForm from "../components/AddItem";
@@ -54,7 +54,7 @@ export const Purchases = () => {
 
             const token = accessToken.__raw;
             await fetch(
-                "https://backend-ecommerce-api-fcrd.onrender.com/DELETE_PRODUCT/?id_product=" +
+                "https://backend-ecommerce-api-fcrd.onrender.com/DELETE_PURCHASE/?id_purchase=" +
                 id,
                 {
                     method: "DELETE",
@@ -101,11 +101,11 @@ export const Purchases = () => {
 
     return (
         <main>
-            <div className="grid-container-inventory">
-                <h1 className="title-inventory">Purchases</h1>
-                <table className="table">
+            <div className="grid-container-purchase">
+                <h1 className="title-purchase">Purchases</h1>
+                <table className="table-purchase">
                     <thead>
-                        <tr className="table-header">
+                        <tr className="table-header-purchase">
                             <th>ID Purchase</th>
                             <th>Client name</th>
                             <th>Date</th>
@@ -123,12 +123,12 @@ export const Purchases = () => {
                                 <td>{purchases.date_of_purchase}</td>
                                 <td>{purchases.shipping_address}</td>
                                 <td>{purchases.phone_contact}</td>
-                                <td>{purchases.total_purchase}</td>
+                                <td>${purchases.total_purchase}</td>
                                 <td>
-                                    <div className="buttons-inventory-order">
+                                    <div className="buttons-purchase-order">
                                         <button
                                             className="removeButton"
-                                            onClick={() => removepurchases(purchases.id_product)}
+                                            onClick={() => removepurchases(purchases.id_purchase)}
                                         >
                                             Remove
                                         </button>

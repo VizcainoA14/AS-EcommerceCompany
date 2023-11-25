@@ -17,8 +17,11 @@
   width: 90vw;
   border-collapse: collapse;
   margin-top: 2vw;
-  font-size: 0.8vw;
+  font-size: 0.9vw;
   font-weight: 500;
+}
+.table td:nth-child(6) {
+  font-size: 0.8vw;
 }
 
 .table-header {
