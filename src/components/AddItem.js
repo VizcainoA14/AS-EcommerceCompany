@@ -12,7 +12,7 @@ export const PopupForm = () => {
   const get_token = useAuth0().getIdTokenClaims();
   const [accessToken, setAccessToken] = useState("");
   const [name_product, setName_product] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(0.00);
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
@@ -24,7 +24,7 @@ export const PopupForm = () => {
   useEffect(() => { 
 
     setName_product("Name");
-    setPrice(1);
+    setPrice(1.00);
     setBrand("Brand");
     setCategory("Category");
     setDescription("Description");
@@ -104,6 +104,7 @@ export const PopupForm = () => {
             placeholder="Price"
             type="number"
             min="1,000"
+            step="0.01"
             onChange={(event) => setPrice(event.target.value)}
           />
 

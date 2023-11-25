@@ -109,7 +109,7 @@ export const Header = () => {
       console.error("Invalid data format:", data);
     }
   };
-  
+
   const limpiarDatos = () => {
     setData({
       list_products: [],
@@ -123,98 +123,103 @@ export const Header = () => {
     <div className="header-container">
       {isAuthenticated ? (
         userRol === "Admin" ? (
-        <>
-          <header className="header">
-            <img className="logo-img" src={iconImage} alt="Icon" />
-            <nav className="nav">
-              <ul className="ul-list">
-                <li className="header-li">
-                  <Link className="link-header" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li className="header-li">
-                  <Link className="link-header" to="/shop">
-                    Shop
-                  </Link>
-                </li>
-                <li className="header-li">
-                  <Link className="link-header" to="/about">
-                    About us
-                  </Link>
-                </li>
-                <li className="header-li">
-                  <Link className="link-header" to="/inventory">
-                    Inventory
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-            <div className="__header-logout-container">
-              <Link className="faShoppingCart" to="/shopping-cart">
-              <div class="circle">
-                  <span class="number">{cart}</span>
-                </div>
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </Link>
-              <img className="profile-img" src={user.picture} alt={user.name} />
-              <button
-                className="logout-button"
-                onClick={() => {
-                  limpiarDatos();
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }} 
-              >
-                Logout
-              </button>
-            </div>
-          </header>
-        </>
+          <>
+            <header className="header">
+              <img className="logo-img" src={iconImage} alt="Icon" />
+              <nav className="nav">
+                <ul className="ul-list">
+                  <li className="header-li">
+                    <Link className="link-header" to="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/shop">
+                      Shop
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/about">
+                      About us
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/inventory">
+                      Inventory
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/purchases">
+                      Purchases
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+              <div className="__header-logout-container">
+                <Link className="faShoppingCart" to="/shopping-cart">
+                  <div class="circle">
+                    <span class="number">{cart}</span>
+                  </div>
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                </Link>
+                <img className="profile-img" src={user.picture} alt={user.name} />
+                <button
+                  className="logout-button"
+                  onClick={() => {
+                    limpiarDatos();
+                    logout({ logoutParams: { returnTo: window.location.origin } })
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+            </header>
+          </>
         ) : (
           <>
-          <header className="header">
-            <img className="logo-img" src={iconImage} alt="Icon" />
-            <nav className="nav">
-              <ul className="ul-list">
-                <li className="header-li">
-                  <Link className="link-header" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li className="header-li">
-                  <Link className="link-header" to="/shop">
-                    Shop
-                  </Link>
-                </li>
-                <li className="header-li">
-                  <Link className="link-header" to="/about">
-                    About us
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-            <div className="__header-logout-container">
-              <Link className="faShoppingCart" to="/shopping-cart">
-              <div class="circle">
-                  <span class="number">{cart}</span>
-                </div>
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </Link>
-              <img className="profile-img" src={user.picture} alt={user.name} />
-              <button
-                className="logout-button"
-                onClick={() => {
-                  limpiarDatos();
-                  logout({ logoutParams: { returnTo: window.location.origin } }) 
-                }} 
-              >
-                Logout
-              </button>
-            </div>
-          </header>
-            </>
-            
-          )
+            <header className="header">
+              <img className="logo-img" src={iconImage} alt="Icon" />
+              <nav className="nav">
+                <ul className="ul-list">
+                  <li className="header-li">
+                    <Link className="link-header" to="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/shop">
+                      Shop
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/about">
+                      About us
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+              <div className="__header-logout-container">
+                <Link className="faShoppingCart" to="/shopping-cart">
+                  <div class="circle">
+                    <span class="number">{cart}</span>
+                  </div>
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                </Link>
+                <img className="profile-img" src={user.picture} alt={user.name} />
+                <button
+                  className="logout-button"
+                  onClick={() => {
+                    limpiarDatos();
+                    logout({ logoutParams: { returnTo: window.location.origin } })
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+            </header>
+          </>
+
+        )
       ) : (
         <>
           <header className="header">
