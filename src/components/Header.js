@@ -144,13 +144,18 @@ export const Header = () => {
                     </Link>
                   </li>
                   <li className="header-li">
+                    <Link className="link-header" to="/my-purchases">
+                      My Purchases
+                    </Link>
+                  </li>
+                  <li className="header-li">
                     <Link className="link-header" to="/inventory">
                       Inventory
                     </Link>
                   </li>
                   <li className="header-li">
                     <Link className="link-header" to="/purchases">
-                      Purchases
+                       All Purchases
                     </Link>
                   </li>
                 </ul>
@@ -194,6 +199,11 @@ export const Header = () => {
                   <li className="header-li">
                     <Link className="link-header" to="/about">
                       About us
+                    </Link>
+                  </li>
+                  <li className="header-li">
+                    <Link className="link-header" to="/my-purchases">
+                      My Purchases
                     </Link>
                   </li>
                 </ul>

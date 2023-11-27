@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import About from "./pages/About";
 import ShoppingCartFront from "./pages/ShoppingCartPage";
 import Purchases from "./pages/Purchases";
+import MyPurchases from "./pages/MyPurchases";
 
 function App() {
   // Defining the state of the user
@@ -32,6 +33,7 @@ function App() {
               <Route path="/buy-product/:id" element={<Buy/>}/>
               <Route path="/shopping-cart" element={<ShoppingCartFront />} />
               <Route path="/purchases" element={<Purchases />} />
+              <Route path="/my-purchases" element={<MyPurchases />} />
             </Routes>
           </div>
           <Footer />
